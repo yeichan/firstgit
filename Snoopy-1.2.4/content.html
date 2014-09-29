@@ -1,0 +1,2119 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+<head>
+<title>고우해커스 >TOEFL>라이팅게시판</title>
+<meta http-equiv=Content-Type content=text/html; charset=EUC-KR>
+<meta name="verify-v1" content="ItkGn8KX0f+dm6uUQwdbVIUgjc4eahN96Moqf7OdU5c=" > 
+<script language='JavaScript'>
+	var select_obj;
+	function ZB_layerAction(name,status) { 
+		var obj=document.all[name];
+		var _tmpx,_tmpy, marginx, marginy;
+		_tmpx = event.clientX + parseInt(obj.offsetWidth);
+		_tmpy = event.clientY + parseInt(obj.offsetHeight);
+		_marginx = document.body.clientWidth - _tmpx;
+		_marginy = document.body.clientHeight - _tmpy ;
+		if(_marginx < 0)
+			_tmpx = event.clientX + document.body.scrollLeft + _marginx ;
+		else
+			_tmpx = event.clientX + document.body.scrollLeft ;
+		if(_marginy < 0)
+			_tmpy = event.clientY + document.body.scrollTop + _marginy +20;
+		else
+			_tmpy = event.clientY + document.body.scrollTop ;
+		obj.style.posLeft=_tmpx-13;
+		obj.style.posTop=_tmpy-12;
+		if(status=='visible') {
+			if(select_obj) {
+				select_obj.style.visibility='hidden';
+				select_obj=null;
+			}
+			select_obj=obj;
+		}else{
+			select_obj=null;
+		}
+		obj.style.visibility=status; 
+	}
+
+
+	function print_ZBlayer(name, homepage, mail, member_no, boardID, writer, traceID, traceType, isAdmin, isMember) {
+		var printHeight = 0;
+		var printMain="";
+	
+		if(homepage) {
+			printMain = "<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('"+homepage+"');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_homepage.gif border=0 align=absmiddle>&nbsp;&nbsp;홈페이지&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(mail) {
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode=m&str="+mail+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_mail.gif border=0 align=absmiddle>&nbsp;&nbsp;메일 보내기&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(member_no) {
+			if(isMember) {
+				printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('view_info.php?member_no="+member_no+"','view_info','width=400,height=510,toolbar=no,scrollbars=yes');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_memo.gif border=0 align=absmiddle>&nbsp;&nbsp;쪽지 보내기&nbsp;&nbsp;</td></tr>";
+				printHeight = printHeight + 16;
+			}
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('view_info2.php?member_no="+member_no+"','view_info','width=400,height=510,toolbar=no,scrollbars=yes');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_information.gif border=0 align=absmiddle>&nbsp;&nbsp;회원정보 보기&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(writer) {
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=location.href='zboard.php?id="+boardID+"&sn1=on&sn=on&ss=off&sc=off&keyword="+writer+"';><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_search.gif border=0 align=absmiddle>&nbsp;&nbsp;이름으로 검색&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(isAdmin) {
+			if(member_no) {
+				printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode=i&str="+member_no+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_modify.gif border=0 align=absmiddle>&nbsp;&nbsp;<font color=darkred>회원정보 변경&nbsp;&nbsp;</td></tr>";
+				printHeight = printHeight + 16;
+			}
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode="+traceType+"&str="+traceID+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_relationlist.gif border=0 align=absmiddle>&nbsp;&nbsp;<font color=darkred>관련글 추적</font>&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		
+		}
+		var printHeader = "<div id='"+name+"' style='position:absolute; left:10px; top:25px; width:127; height: "+printHeight+"; z-index:1; visibility: hidden' onMousedown=ZB_layerAction('"+name+"','hidden')><table border=0><tr><td colspan=3 onMouseover=ZB_layerAction('"+name+"','hidden') height=3></td></tr><tr><td width=5 onMouseover=ZB_layerAction('"+name+"','hidden') rowspan=2>&nbsp;</td><td height=5></td></tr><tr><td><table style=cursor:hand border='0' cellspacing='1' cellpadding='0' bgcolor='black' width=100% height=100%><tr><td valign=top bgcolor=white><table border=0 cellspacing=0 cellpadding=3 width=100% height=100%>";
+		var printFooter = "</table></td></tr></table></td><td width=5 rowspan=2 onMouseover=ZB_layerAction('"+name+"','hidden')>&nbsp;</td></tr><tr><td colspan=3 height=10 onMouseover=ZB_layerAction('"+name+"','hidden')></td></tr></table></div>";
+	
+		document.writeln(printHeader+printMain+printFooter);
+	}
+</script>
+<script language="javascript">
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+if(browserName == "Netscape" && browserVer >= 3){ init = "net"; }
+else { init = "ie"; }
+
+
+if(((init == "net")&&(browserVer >=3))||((init == "ie")&&(browserVer >= 4))){
+
+ sp_on=new Image;
+ sp_off=new Image;
+ sp_on.src= "skin/daum_community/etss_on.gif";
+ sp_off.src= "skin/daum_community/etss_off.gif";
+
+ sn_on=new Image;
+ sn_off=new Image;
+ sn_on.src= "skin/daum_community/name_on.gif";
+ sn_off.src= "skin/daum_community/name_off.gif";
+
+ ss_on=new Image;
+ ss_off=new Image;
+ ss_on.src= "skin/daum_community/subject_on.gif";
+ ss_off.src= "skin/daum_community/subject_off.gif";
+
+ sc_on=new Image;
+ sc_off=new Image;
+ sc_on.src= "skin/daum_community/content_on.gif";
+ sc_off.src= "skin/daum_community/content_off.gif";
+
+ sf_on=new Image;
+ sf_off=new Image;
+ sf_on.src= "skin/daum_community/form_on.gif";
+ sf_off.src= "skin/daum_community/form_off.gif";
+
+ sa_on=new Image;
+ sa_off=new Image;
+ sa_on.src= "skin/daum_community/topic_on.gif";
+ sa_off.src= "skin/daum_community/topic_off.gif";
+}
+
+function OnOff(name) {
+if(((init == "net")&&(browserVer >=3))||((init == "ie")&&(browserVer >= 4))) {
+ 
+ if(document.search[name].value=='on')
+  {
+   document.search[name].value='off';
+   ImgSrc=eval(name+"_off.src");
+   document[name].src=ImgSrc;
+  }
+  else
+  {
+   document.search[name].value='on';
+   ImgSrc=eval(name+"_on.src");
+   document[name].src=ImgSrc;
+  }
+ }
+}
+
+
+function OnOff(spage) {
+if(((init == "net")&&(browserVer >=3))||((init == "ie")&&(browserVer >= 4))) {
+ 
+ if(document.search[spage].value=='on')
+  {
+   document.search[spage].value='off';
+   ImgSrc=eval(spage+"_off.src");
+   document[spage].src=ImgSrc;
+  }
+  else
+  {
+   document.search[spage].value='on';
+   ImgSrc=eval(spage+"_on.src");
+   document[spage].src=ImgSrc;
+  }
+ }
+}
+
+</script>
+
+<script language="javascript">
+  function reverse() {
+   var i, chked=0;
+   if(confirm('목록을 반전하시겠습니까?\n\n반전을 원하지 않는다면 취소를 누르시면 다음으로 넘어갑니다'))
+   {
+    for(i=0;i<document.list.length;i++)
+    {
+     if(document.list[i].type=='checkbox')
+     {
+      if(document.list[i].checked) { document.list[i].checked=false; }
+      else { document.list[i].checked=true; }
+     }
+    }
+   }
+   for(i=0;i<document.list.length;i++)
+   {
+    if(document.list[i].type=='checkbox')
+    {
+     if(document.list[i].checked) chked=1;
+    }
+   }
+   if(chked) {
+    if(confirm('선택된 항목을 보시겠습니까?'))
+     {
+      document.list.selected.value='';
+      document.list.exec.value='view_all';
+      for(i=0;i<document.list.length;i++)
+      {
+       if(document.list[i].type=='checkbox')
+       {
+        if(document.list[i].checked)
+        {
+         document.list.selected.value=document.list[i].value+';'+document.list.selected.value;
+        }
+       }
+      }
+      document.list.submit();
+      return true;
+     }
+    }
+   }
+
+ function delete_all() {
+  var i, chked=0;
+  for(i=0;i<document.list.length;i++)
+  {
+   if(document.list[i].type=='checkbox')
+   {
+    if(document.list[i].checked) chked=1;
+    }
+   }
+  if(chked)
+  {
+    document.list.selected.value='';
+    document.list.exec.value='delete_all';
+    for(i=0;i<document.list.length;i++)
+    {
+     if(document.list[i].type=='checkbox')
+     {
+      if(document.list[i].checked)
+      {
+       document.list.selected.value=document.list[i].value+';'+document.list.selected.value;
+      }
+     }
+    }
+    window.open("select_list_all.php?id=essay&selected="+document.list.selected.value,"게시물정리","width=260,height=200,toolbars=no,resize=no,scrollbars=no");
+  }
+  else {alert('정리할 게시물을 선택하여 주십시요');}
+ }
+
+ function category_change(obj) {
+  var myindex=obj.selectedIndex;
+  document.search.category.value=obj.options[myindex].value;
+  document.search.submit();
+  return true;
+ }
+
+//-->
+</script>
+
+
+</head>
+<body topmargin='0'  leftmargin='0' marginwidth='0' marginheight='0' >
+			<div align=center>
+			<div id="content">
+			<table>
+            	<tr>
+                	<td height="15px">
+                    </td>
+                </tr>
+            </table>
+            
+            <!--
+			<table border=0 cellspacing=0 cellpadding=0 width=700 height=1 style="table-layout:fixed;">
+			    <col width=100%></col>
+			    <tr>
+			        <td><img src=images/t.gif border=0 width=98% height=1 name=zb_get_table_width>
+			            <br><img src=images/t.gif border=0 name=zb_target_resize width=1 height=1>
+			         </td>
+			    </tr>
+			</table>
+			-->
+			<link rel="stylesheet" href="http://www.gohackers.com/common/css/common.css" type="text/css">
+<link rel="stylesheet" href="http://www.gohackers.com/common/css/community.css" type="text/css">
+<link rel="stylesheet" href="http://www.gohackers.com/common/css/bbs.css?u=20101210" type="text/css">
+<script type="text/javascript" src="http://www.gohackers.com/common/js/board/common.js?u=1401764714"></script>
+<script type="text/javascript" src="http://www.gohackers.com/common/js/aria.js?u=1401764714"></script>
+<script type="text/javascript" src="http://www.gohackers.com/common/js/list_preview.js"></script>
+<style>
+.tran_ie_R{background:transparent URL('http://img.educamp.org/admin/shadow_r.png') no-repeat;} 
+.tran_ie_B{background:transparent URL('http://img.educamp.org/admin/shadow_b.png') no-repeat;} 
+.tran_ie_RB{background:transparent URL('http://img.educamp.org/admin/shadow_rb.png') no-repeat;} 
+.lyr_bdr { padding:10px 16px 10px 16px; } .lyr_bdr2 { padding:8px 8px 8px 8px; } .lyr_nsl{float:left; } img.lyr_nsl {margin:0 15px 0 0; }
+</style>
+<script>
+   
+ var hxtt_spl_skin =
+{
+	type:"id.html", followMouse:true, mouseontooltip:false, delay:0.01, offset:[1,7,7,1], padding:[0,10,0,10], maxWidth:0,
+	head:"<table cellspacing=0 cellpadding=0 border=0><tr><td width=360 bgcolor=#FFFFFF class=lyr_bdr style='border:1px solid #EDEDED;'>",
+	tail:"</td><td width=6 class=tran_ie_R nowrap></td></tr><tr><td height=6 class=tran_ie_B nowrap></td><td class=tran_ie_RB nowrap></td></tr></table>"
+};
+
+// 검색
+function sch_next(){
+	var sff_		= document.search_ad.sff.value;
+	var ctgy		= document.getElementById("ctgy").value;
+	var univ_name_	= document.search_ad.univ_name.value;
+	var major_		= document.search_ad.major.value;
+	
+	if(sff_=="" && ctgy=="" && univ_name_=="" && major_==""){
+		alert('검색조건을 입력해 주시기 바랍니다');
+	}
+	else {
+		document.search_ad.submit();
+	}
+}
+
+// 검색조건 리셋
+function sch_reset(){
+	// 어드미션 포스팅 관련변수
+	var sff = "";				// 학위
+	var category = "";	// 형식
+	var univ_name = "";	// 학교명
+	var major = "";			// 전공명
+	
+	if(sff || category || univ_name || major){
+		location.href = "http://www.gohackers.com/bbs/zboard.php?id=admission";
+	}
+	else {
+		document.search_ad.reset();
+	}
+}
+</script>
+<!-- ###setup.php끝### -->
+
+<div id="wrap">
+	<!--  -->
+    <div id="topWrap">
+        <div id="header_contents">
+        <!---->
+		<!---->
+		
+<script language="javascript">
+
+    function CreateBookmark(url,title)
+    { 
+       /*
+       * 기존값 주석처리
+       */
+       //title = "Webpage Title";   
+       //var url = document.URL;
+        
+       //for firefox bookmark.
+       if (window.sidebar) { 		
+      	  window.sidebar.addPanel(title, url,"");	
+       } else if(window.external ) { 	
+       	window.external.AddFavorite( url, title);
+       }
+    } 
+
+    /**
+     * 이메일 추천하기
+     */
+    function recommend_email() {
+        window.open("/?recommend/view/id/essay/no/83779","recommend_mail","width=665,height=150,scrolling=no,resize=no");
+    }
+
+    
+	function createXHR() {
+    var xhr = false;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xhr;
+}
+</script>
+
+<center>
+<iframe name="hiddenframe" style="display:none"></iframe>
+
+<table width='700' cellpadding='0' cellspacing='0' border='0'>
+    <tr>
+        <td width="40%" align='right'></td>
+        <td width="" align='right' style="padding:5px 0 0 0">
+				
+		                        <img src='http://www.gohackers.com/bbs/images/btn_add_favorite.gif' onclick="javascript:CreateBookmark('http://www.gohackers.com/html/?id=essay&is_re=','Go! Hackers! - 토플라이팅')" style="cursor:pointer;">
+            						        </td>
+    </tr>
+    <tr>
+        <td height="15"></td>
+    </tr>
+</table>
+</center><center>
+<table width="700" cellpadding="0" cellspacing="0">
+    <tr>
+			<td align=left><style>
+.title_color, a.title_color:link, a.title_color:visited, a.title_color:hover, a.title_color:active{color:#336596}
+.title_color{font-size: 12pt; color: #000000; text-decoration: none; font-family: "굴림"}
+.style23 {
+	color: #818181;
+	font-weight: bold;
+}
+</style>
+<FONT color=#336596><SPAN style="FONT-SIZE: 16px;font-weight:bold;"><a href="http://gre.gohackers.com/bbs/zboard.php?id=essay" class=title_color><b>라이팅 게시판</b></a></SPAN></FONT>
+<span class="style23"> | 토플에세이도 쓰고 평가도 해보며, 여러분들의 의견을 주고 받는 곳입니다.</span></td>
+				</tr>
+    <tr>
+        <td height="15" align="right">
+                </td>
+    </tr>
+</table>
+</center>
+
+
+
+       
+                </div>
+        <!--header_contents-->     
+        
+                
+
+        
+        <div style="float:right;" alt="header우">
+
+            <!--<a onfocus=blur() href='login.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&s_url=%2Fbbs%2Fzboard.php%3Fid%3Dessay%26no%3D83779%26id%3Dessay%26page%3D1%26sp1%3D%26sn1%3D%26divpage%3D15%26sp%3Doff%26sn%3Doff%26ss%3Don%26sc%3Don%26sf%3Doff%26sa%3Doff'></a>-->
+            <!---->
+            <!--<Zeroboard 로그아웃</a>-->
+        	<!---->
+            <!---->
+
+                    </div>
+
+        <div id="headerListArea" style="width:700px;">    
+            <div style="float:left;" alt="header좌">      
+                            </div>
+
+        </div>    
+    </div>  
+    
+    
+<div id="contentWrap" >
+
+	
+
+<script type="text/javascript" src="http://www.gohackers.com/common/js/autosourcing.js"></script>
+<style type="text/css">
+    DIV.autosourcing-stub {display:none;}
+    DIV.autosourcing-stub-extra { position:absolute; opacity:100 }
+</style>
+<script type="text/javascript">
+AutoSourcing.setTemplate("<p style='margin:11px 0 7px 0;padding:0'><Br> <b>[출처]</b> <a href='{link}' target='_blank'> {title}( [고우해커스] 전세계유학정보의중심)</a> | <b>작성자</b> {name}</p>");
+AutoSourcing.setString(83779,"훈제연어님 첨삭부탁드립니다!", "홍이", "http://www.gohackers.com/html/?id=essay&no=83779");
+AutoSourcing.init( 'view_%id%' , true);
+</script>
+<div id=view_83779>
+<script type="text/javascript">
+    /* AJAX로 단축 URL 얻기 */
+    function getSimpleUrl() {
+        var xhr = createXHR();
+        xhr.open("GET","/bbs/get_simple_url.php?code=essay#83779&id=essay",false);
+        xhr.send(null);
+
+        return xhr.responseText;
+    }
+
+	function autoResize(i){
+		var iframeHeight= i.contentWindow.document.body.scrollHeight;
+		i.height=iframeHeight+40;
+	}
+
+	/*
+	function resizeFrame_(frm) {
+		frm.style.height = "auto";
+		contentHeight = frm.contentWindow.document.body.scrollHeight;
+		frm.style.height = contentHeight + 4 + "px";
+	}
+	
+	this.style.height=this.contentWindow.document.body.scrollHeight
+    
+	// Faccbook 
+    function facebook_scrap(){
+        var simpleUrl = getSimpleUrl();
+        hiddenframe.location.replace('http://www.gohackers.com/spoon/facebook/index.php?name=%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4+%C3%B7%BB%E8%BA%CE%C5%B9%B5%E5%B8%B3%B4%CF%B4%D9%21&link='+simpleUrl+'&message=%3C%C5%E4%C7%C3%B6%F3%C0%CC%C6%C3%3E+%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4+%C3%B7%BB%E8%BA%CE%C5%B9%B5%E5%B8%B3%B4%CF%B4%D9%21+%5B%B0%ED%BF%EC%C7%D8%C4%BF%BD%BA%5D+'+simpleUrl+'&caption=%26%239632%3B+Direction+You+have+20+minutes+to+plan+and+write+your+response.+You+response+will+be+judge+on+the+basis+of+The+quality+of+writing+and...&picture=http%3A%2F%2Fwww.gohackers.com%2Fbbs%2Fdata%2Fessay%2Fthumb%2F83779&description=');
+    }*/
+
+	function facebook_scrap(){		
+		window.open('http://www.gohackers.com/facebook/facebook_write.php?message=%25C8%25C6%25C1%25A6%25BF%25AC%25BE%25EE%25B4%25D4%2B%25C3%25B7%25BB%25E8%25BA%25CE%25C5%25B9%25B5%25E5%25B8%25B3%25B4%25CF%25B4%25D9%2521&link_url=http%3A%2F%2Fwww.gohackers.com%2Fhtml%2F%3Fid%3Dessay%26no%3D83779&picture_url=http%3A%2F%2Fwww.gohackers.com%2Fimages%2Fheader%2Fgohackers_Logo.gif');
+		
+		/*var title = encodeURIComponent("[고우해커스] ");
+		var URL   = encodeURIComponent("http://www.gohackers.com/html/?id=essay&no=83779");
+		var Tag   = encodeURIComponent(":: 전세계 유학정보의 중심");
+		window.open("http://www.facebook.com/sharer.php?u=" + URL + "&t=" + title);*/
+    }
+
+	function gosi_facebook(){
+	  var title = encodeURIComponent("[해커스패스 - 공무원 시험전문] ");
+	  var URL   = encodeURIComponent("http://www.hackerspass.com/html/mmove.htm?id=afterseminar&no=83779");
+	  var Tag   = encodeURIComponent(":: 해커스 철학나눔");
+
+	  window.open("http://www.facebook.com/sharer.php?u=" + URL + "&t=" + title);
+    }
+
+    /* Twitter */
+    function twitter_scrap(){
+        var simpleUrl = getSimpleUrl();
+        hiddenframe.location.replace('http://www.gohackers.com/spoon/twitter/index.php?message=%3C%C5%E4%C7%C3%B6%F3%C0%CC%C6%C3%3E+%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4+%C3%B7%BB%E8%BA%CE%C5%B9%B5%E5%B8%B3%B4%CF%B4%D9%21+%5B%B0%ED%BF%EC%C7%D8%C4%BF%BD%BA%5D+'+simpleUrl);
+    }
+
+	function gosi_twitter_scrap(){
+      var title = encodeURIComponent("[해커스패스 - 공무원 시험전문] ");
+	  var URL   = encodeURIComponent("http://www.hackerspass.com/html/mmove.htm?id=afterseminar&no=83779");
+	  var Tag   = encodeURIComponent(":: 해커스 철학나눔");
+
+	  window.open("http://www.twitter.com/home?status=" + title + ":" + URL);
+       // hiddenframe.location.replace('http://www.gohackers.com/spoon/twitter/index.php?message=%3C%C5%E4%C7%C3%B6%F3%C0%CC%C6%C3%3E+%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4+%C3%B7%BB%E8%BA%CE%C5%B9%B5%E5%B8%B3%B4%CF%B4%D9%21+%5B%B0%ED%BF%EC%C7%D8%C4%BF%BD%BA%5D+'+simpleUrl);
+    }
+
+    function change_target_board_name(){
+        var sbname = document.content.select_board_name.value;
+
+        //히든변수에 값 설정
+        document.content.board_name.value = sbname;
+
+        //Zadmin, Storage 게시판으로 이동,복사시 게시글 설정
+        if( sbname == "zero_admin" || sbname == "z_storage" ) {
+            document.content.notice_bbs.value = "1";
+        }
+		else {
+            document.content.notice_bbs.value = "0";
+        }
+    }
+
+    function content_work(kind){
+        var check;
+
+        if(document.content.board_name.value ==""){
+            alert('게시판을 선택해주십시오');
+            return;
+        }
+
+        document.content.exec.value = kind;
+        switch(kind) {
+            case "copy_all" :
+                check=confirm(document.content.board_name.value+"게시판으로 복사 하시겠습니까?");
+                break;
+            case "move_all" :
+                check=confirm(document.content.board_name.value+"게시판으로 이동 하시겠습니까?");
+                break;
+            case "delete_all" :
+                check=confirm(document.content.board_name.value+"게시글을 삭제 하시겠습니까?");
+                break;
+            case "best_all" :
+                check=confirm(document.content.board_name.value+"베스트글로 등록 하시겠습니까?");
+                break;
+            case "best_all_cancle" :
+                check=confirm(document.content.board_name.value+"베스트글을 해지 하시겠습니까?");
+                break;
+            case "datefix_all" :
+                check=confirm(document.content.board_name.value+"날짜 기준으로 게시글 위치를 변경 하시겠습니까?");
+                break;
+            case "set_flownotice" :
+                check=confirm(document.content.board_name.value+"흐르는 공지 등록 하시겠습니까?");
+                break;
+            case "unset_flownotice" :
+                check=confirm(document.content.board_name.value+"흐르는 공지 해지 하시겠습니까?");
+                break;
+        }
+
+        if(check==true) {
+			document.content.submit();
+		}
+    }
+
+    function content_copy(){
+        var check;
+
+        if(document.content.board_name.value ==""){
+            alert('복사할 게시판명을 선택해주십시오');
+            return;
+        }
+
+        document.content.exec.value="copy_all";
+        check=confirm(document.content.board_name.value+"게시판으로 복사 하시겠습니까?");
+        if(check==true) {document.content.submit();}
+    }
+
+    function content_move(){
+        var check;
+
+        if(document.content.board_name.value ==""){
+            alert('옮기실 게시판명을 선택해주십시오');
+            return;
+        }
+
+        document.content.exec.value="move_all";
+        check=confirm(document.content.board_name.value+"게시판으로 이동하시겠습니까?");
+        if(check==true) {
+			document.content.submit();
+		}
+    }
+
+    /* 주소 복사기능 */
+    var NS4;
+    var IE4;
+    var sUserAgent = navigator.userAgent;
+    var isOpera = sUserAgent.indexOf("Opera") > -1;
+    var isIE = sUserAgent.indexOf("compatible") > -1
+               && sUserAgent.indexOf("MSIE") > -1
+               && !isOpera;
+    var isMobile = sUserAgent.indexOf("Mobile") > -1;
+    var isChrome = sUserAgent.indexOf("Chrome") > -1;
+   
+	if (isIE) {
+        IE4 = true;
+        NS4 = false;
+    }
+	else {
+        IE4 = false;
+        NS4 = true;
+    }
+
+    //관리형 메뉴 주소복사
+    urlToClip = function(sId,sNo){
+        var base_url;
+        if(typeof(global_url) == "undefined"){
+            base_url = "http://"+document.location.host;
+        } 
+		else {
+            base_url = global_url;
+        }
+
+        var clipboardUrl = base_url+"/html/?id="+sId+"&no="+sNo;
+
+        if (NS4) {
+            prompt("이 글의 고유주소입니다. Ctrl+C를 눌러 복사하세요.", clipboardUrl);
+        } 
+		else if (IE4) {
+            window.clipboardData.setData("Text", clipboardUrl);
+            alert("주소가 복사되었습니다.\n Ctrl+V를 눌러서 사용하세요.\n\n"+clipboardUrl);
+        }
+    }
+</script>
+
+<div id="hackBbsBody">
+	<!--<div class="admin_area" style="position:relative; display:block; width:100%; float:right; padding:5 0 7 0; margin-bottom:10px;">-->
+    
+	<!--시작 : 관리자용 게시물 이동 기능 추가 -->
+    
+        <!--종료 : 관리자용 게시물 이동 기능 추가 -->
+<!--    </div>-->
+        <!-- 버튼 관련 출력 -->
+    <div class="itemBtnSet" style="border:0px solid #00000;">
+    	<div class="fl_ri bbsLinkSet">
+    	    
+    		<a href="zboard.php?id=essay&page=1&page_num=20&category=&sn=off&ss=on&sc=on&keyword=&prev_no=83779&sn1=&divpage=15&select_arrange=headnum,arrangenum&desc=&domain=&post_message=" class="goList">목록</a> 
+    		        	<span class="bar">|</span>
+        	
+			<a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83780" class="goPrev">윗글</a>
+        	        	        	<span class="bar">|</span>
+        	
+			<a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83777" class="goNext">아랫글</a>
+        	    	</div>
+
+    	        <input type="button" value="글쓰기" class="typeBtn btnWrite" onclick="aria.link('write.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=write&sn1=')" />
+                			        <input type="button" value="답글" class="typeBtn btnReply" onclick="aria.link('write.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=reply&sn1=')" />
+			        			        <input type="button" value="수정" class="typeBtn btnModify" onclick="aria.link('modify.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=modify')" />
+        <input type="button" value="삭제" class="typeBtn btnDelete" onclick="aria.link('delete.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779')" />
+			        
+    </div>     
+    <div id="bbsTitle" class="cTt">
+        <span style="width:620px; ">[첨삭] 훈제연어님 첨삭부탁드립니다!<font class="repCnt"></font></span>
+        <span class="">
+					<a target="hiddenframe" onclick="javascript:facebook_scrap();" style="cursor:pointer; position:relative; top:0px;"><img src="http://www.gohackers.com/img/board/facebook_icon.jpg"  width="20" border="0" /></a>
+			<a target="hiddenframe" onclick="javascript:twitter_scrap();" style="cursor:pointer; position:relative;  top:0px;"><img src="http://www.gohackers.com/img/board/twitter_icon.jpg"    width="20" border="0" /></a>
+		       
+        </span>
+    </div>
+	<div id="bbsInfo">		
+		<span class="fl_ri">		    
+		       		    조회 <span>24</span>
+   		    <span class="bar">|</span>			
+			등록일 <!--<span class="no"></span>-->
+			<span class="bar">|</span>
+    		<span class="datetime">2014.05.30</span>  
+            <span class="bar">|</span>
+            <span class="no"><a href="#" onClick="javascript:urlToClip('essay','83779');return false;" class="url-btn"><img src="http://www.gohackers.com/img/board/btn-copy-add.gif" align=absmiddle width="41" height="15"></a></span>
+		</span>		
+        <table style="margin-top:0px;">
+            <tr >
+			                <td><a href="javascript:;" class="fl_le nick">홍이</a>    </td>    
+			                <td style="padding-right:25px;"></td>
+                            </tr>
+        </table>        
+	</div>
+
+	
+	<div id="bbsAttachFile"  >		
+		<!--					<Zeroboard (0)</a>, Download : 0 , 				-->		
+
+		<!--				<Zeroboard</a> (0), Download : 0				-->    </div>
+         	
+    <!--게시글 내용 출력시작-->
+	<div id="bbsContent" class="tx-content-container" style='overflow-x:hidden;'><!-- 가로스크롤 숨김-->
+	            
+        <!--이전 업로드형태 파일 미리보기-->
+               
+						
+        	
+
+					<div style='padding:2px;' id="bbsInfo">
+				    
+<div id="bbs_memo">
+  <TABLE cellSpacing=0 cellPadding=0 width=450>
+<TBODY>
+<TR>
+<TD vAlign=top>
+<TABLE style="BORDER-TOP: windowtext 0.5pt solid; BORDER-RIGHT: windowtext 0.5pt solid; BORDER-BOTTOM: windowtext 0.5pt solid; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 450pt" height=57 cellSpacing=0 cellPadding=0 width=450>
+<TBODY>
+<TR>
+<TD style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px" bgColor=#ebecea>
+<P>&#9632; Direction You have 20 minutes to plan and write your response. You response will be judge on the basis of The quality of writing and on how well your response presents the points in the lecture and the relationship to the reading passage. Typically, an effective response will be 150 to 225 words.<BR>&#9632; Question Summarize the points made in the lecture you just heard, explaining how they cast doubt on the points made in the reading<BR></P></TD></TR></TBODY></TABLE></TD></TR>
+<TR>
+<TD style="FONT-SIZE: 12px"><BR></TD></TR>
+<TR>
+<TD vAlign=top>
+<TABLE style="BORDER-TOP: windowtext 1px solid; BORDER-RIGHT: windowtext 1px solid; BORDER-BOTTOM: windowtext 1px solid; BORDER-LEFT: windowtext 1px solid; WIDTH: 450pt" height=100 cellSpacing=0 cellPadding=0 width=450>
+<TBODY>
+<TR>
+<TD style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px"><STRONG>&#9654; Topic : Some people prefer to live in a&nbsp;big city. Others prefer to live in a small town. Which do you prefer?</STRONG></TD></TR></TBODY></TABLE></TD></TR></TR>
+<TR>
+<TD style="FONT-SIZE: 12px"><BR></TD></TR>
+<TR>
+<TD vAlign=top>
+<TABLE style="BORDER-TOP: windowtext 1px solid; HEIGHT: auto; BORDER-RIGHT: windowtext 1px solid; TABLE-LAYOUT: fixed; BORDER-BOTTOM: windowtext 1px solid; WORD-BREAK: break-all; BORDER-LEFT: windowtext 1px solid; WIDTH: 450pt" height=300 cellSpacing=0 cellPadding=0 width=450>
+<TBODY>
+<TR>
+<TD id=idwordcounttd style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px">
+<P>&#9654; Your Answer : Some people prefer to live in a small city while others prefer to live in a big city. However, as far as I am concerned, I prefer to live in a big city since&nbsp;we can broaden our cultural&nbsp;view&nbsp;and big cities have a good educational environment. I will briefly describe the reasons for this.</P>
+<P>&nbsp;</P>
+<P>To begin with, living in big cities make our cultural view more&nbsp;widely than living in small cities because there are a lot of facilities and activities that offer many events and exhibitions in which i can take part in. Let's take a case of Seoul, the biggest city in Korea and 12th populated city in the world. The city has multinational restaurants such as indian, italian, japanese and so on. For these reasons,&nbsp;people who live in seoul always can taste a lot of foods that come from another countries. Not only that, there are many facilities to&nbsp;access another culture,&nbsp;so we do not have to worry about the way to&nbsp;learn about another&nbsp;culture. For instance, If&nbsp;you have an assignment&nbsp;to inspect about culture&nbsp;in your universitiy, you&nbsp;can&nbsp;easily go to national museum in Seoul. In that point, living in big cities are more valuable to broad our cultural view.</P>
+<P>&nbsp;</P>
+<P>Second, The big cities provide good educational environment so&nbsp;it gives&nbsp;more opportunities for students who live in big cities&nbsp;than&nbsp;those who&nbsp;do not. Moreover, it is easy to access to&nbsp;a lot&nbsp;of facilities and opportunities that give them to satisfy intellectual demand. I will take Seoul for example. Seoul has many educational faciliites such as libraries, many universities and various kinds of bookstores so people can gain a lot of&nbsp;helpful things&nbsp;by visiting and experiencing that place. Also there are many companies so college students&nbsp;have oppurtunities to&nbsp;apply for an internship.According to recent research by Korea times, people&nbsp;who have lived only big cities are more likely to&nbsp;have high&nbsp;possiblities to enter the prestigious university than those who have lived only small cities.</P>
+<P>&nbsp;</P>
+<P>As I mentioned above, I&nbsp;strongly believe that&nbsp;living in a big city is better than living in a small city. This is because, big cities is not only helpful to broaden our cultural view but also it gives us&nbsp;a lot of&nbsp;opportunities for education.</P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+</div>
+	</div>
+		<!--<div id="writerFromDiv" title=서명></div>-->
+    </div><!--/ 게시글 내용 출력끝-->
+     
+    <div id="bbsBottom" >
+        	
+        <div id="bbsRight" class="fl_ri">
+    		<!--<p class="fl_ri"><a class="claim dotumTxt" onclick="aria.popUp('','450','300');" href="javascript:;">신고</a></p>
+    		<br><p class="fl_ri"><b><a href="#">Top</a></p>-->
+    	</div>	    	
+    </div>
+  	
+	 <!--작성자 정보출력 시작-->
+    <div class="fl_ri"> 
+        </div>
+    <!--작성자 정보출력 끝-->	
+
+
+    <div class="itemBtnSet">
+        <div class="fl_ri bbsLinkSet"> 
+       		
+        </div>
+    </div>
+
+    <!--이름으로 검색용-->
+    <form name="searchNameForm" method="post" action="/bbs/zboard.php" >
+        <input type=hidden name=page value=1>
+        <input type=hidden name=id value=essay>
+        <input type=hidden name=select_arrange value=headnum,arrangenum>
+        <input type=hidden name=desc value=>
+        <input type=hidden name=page_num value=20>
+        <input type=hidden name=selected>
+        <input type=hidden name=exec>
+        <input type=hidden name=sp value="off">
+        <input type=hidden name=sn value="off">
+        <input type=hidden name=ss value="on">
+        <input type=hidden name=sc value="on">
+        <input type=hidden name=sf value="off">
+        <input type=hidden name=sa value="off">
+        <input type=hidden name=cmt value="off">
+        <input type=hidden name=category value="">
+        <input type=hidden name=searchKey > 
+        <input type=hidden name=keyword  >
+    </form> 
+
+    <!-- 간단한 답글 시작하는 부분 -->
+     
+   
+    <script type="text/javascript"> 
+    <!--
+        
+        function LPost(w,form) {
+			form.submit();
+		}
+        
+		var i = 0;
+        var clickedButton = false;
+        
+        function Delete() {
+			if (confirm("선택된 메세지 삭제를 원하십니까?")) {
+				clickedButton = true;
+				document.fdel.action = "del_comment_ok2.php";
+				LPost(window,document.fdel);
+			}
+        }
+        
+        function Edit() {
+        	document.fdel.action = "comment_edit_ok2.php";
+        	LPost(window,document.fdel);	
+        }
+
+        function allcheck(theform) {
+        	for( var i=0; i<theform.elements.length; i++) {
+        		var ele = theform.elements[i];
+        		
+				if(ele.name == 'idddx[]') {
+        			ele.checked = true;
+				}
+        	}
+
+        	return;
+        }
+
+        function discheck(theform) {
+        	for( var i=0; i<document.fdel.elements.length; i++) {
+        		var ele = document.fdel.elements[i];
+        		if(ele.name == 'idddx[]') {
+        			ele.checked = false;
+				}
+        	}
+
+        	return;
+        }
+        
+        //링크는 모두 새창으로 변경
+        /*
+			var linkArr = document.getElementById('bbsContent').getElementsByTagName('a');
+			
+			for(var i=0,cnt=linkArr.length;i<cnt;++i) {
+				linkArr[i].target="_blank";
+			}
+    	*/
+    
+        //댓글 수정버튼	
+        function list_view(div_id){ 
+        	
+            var iframeKey = "reply_iframe_"+div_id;
+            var div_id ="edit_from_"+div_id;
+            var currentIFrame = document.getElementById(iframeKey);	
+        
+        	if(document.getElementById(div_id).style.display == 'none'){ 		
+        		document.getElementById(div_id).style.display = 'block'; 
+        		try{
+        			currentIFrame.height = 0;					
+        		}
+        		catch(ex){}
+        		
+        	}
+			else{ 
+        		document.getElementById(div_id).style.display = 'none'; 
+            } 
+        }    
+    //-->
+    </script><style>
+.ontitle_adv { font: normal 13px 돋움; padding:5px 0 5px 10px; }
+</style>     
+
+                
+	<style type="text/css">
+		a.btn_good2 {
+			display:inline-block; height:20px; padding:0 0 0 50px; background:url(http://image.gohackers.com/img/button/btn_good01.gif) left top no-repeat;
+		}
+		a.btn_good2 span {
+			display:inline-block; height:20px; padding:4px 9px 0 5px; font-size:11px; color:#f93d3c;
+			background:url(http://image.gohackers.com/img/button/btn_good02.gif) right top no-repeat;
+		}
+	</style>
+
+	
+
+<!--// 유학생토론장. 유학생생일기. 유학생연애일기 코멘트 내용에 디폴트 설정 2009.1.15
+    //유학생토론, 유학생연애일기 댓글작성시에 캠페인 이미지 삽입 -> 모든 게시판 적용 -->
+<img src='http://www.gohackers.com/images/common/campaign.gif' border=0>
+
+<div id="commentArea"> 
+    <table width="100%">
+        <tr align="left">
+            <td width="60%">
+                <h3>					
+            	    댓글 <span class="cOg"><!--0--> 0</span>개
+                	            	</h3>
+            </td>
+                    </tr>
+    </table>	
+	
+    <div id="commentBox">
+		<form method="post" name="updateCommentForm" method="post" action="/bbs/comment_ok.php">
+		<input type=hidden name="commentPopYn" value=>
+		<input type=hidden name=page value=1>
+		<input type=hidden name=id value=essay>
+		<input type=hidden name=no value=83779>
+		<input type=hidden name=select_arrange value=headnum,arrangenum>
+		<input type=hidden name=desc value=>
+		<input type=hidden name=co_icon id="reply_emotion" value="icon01.gif">
+		<input type=hidden name=page_num value=20>
+		<input type=hidden name=keyword value="">
+		<input type=hidden name=category value="">
+		<input type=hidden name=sn value="off">
+		<input type=hidden name=ss value="on">
+		<input type=hidden name=sc value="on">
+		<input type=hidden name=mode value="">
+		<input type=hidden name=rcno id="rcno" ><!--댓글의 원글정보-->    
+		<!-- <input type=hidden name=memo id="reply_memo">-->
+		<input type=hidden name=name><!--비회원일때 이름-->
+		<input type=hidden name=password><!--비회원일때 패스워드-->  
+		
+		<!-- 타 사이트에서 iframe으로 댕겨갈때 파라미터 -->
+		<input type=hidden name=post_message value="">
+		<input type=hidden name=p_url value="">
+
+		<ul class="commentList">			    
+		<a name="paging"></a>     		
+	</ul>
+    </form>    
+ 
+    
+    <!-- 페이징 Start -->    
+	
+	<div><table cellspacing=0 cellpadding=0 align=center border=0><tbody><tr align=middle></tr></tbody></table></div>
+    <!-- // 페이징 End -->
+
+
+    <form method=post name=writeCommentForm  onsubmit="return aria.commentWrite.submitForm(this)">
+	<input type=hidden name="commentPopYn" value=><!-- delete value from YSR -->
+    <input type=hidden name=page value=1>
+    <input type=hidden name=id value=essay>
+    <input type=hidden name=no value=83779>
+    <input type=hidden name=select_arrange value=headnum,arrangenum>
+    <input type=hidden name=desc value=>
+    <input type=hidden name=co_icon id="emotion" value="icon01.gif">
+    <input type=hidden name=page_num value=20>
+    <input type=hidden name=keyword value="">
+    <input type=hidden name=category value="">
+    <input type=hidden name=sn value="off">
+    <input type=hidden name=ss value="on">
+    <input type=hidden name=sc value="on">    
+    <input type=hidden name=mode value="">    
+    <!--비번확인용-->
+    <input type=hidden name=c_no >
+    <input type=hidden name=password >
+	<!-- 타 사이트에서 iframe으로 댕겨갈때 파라미터 -->
+	<input type=hidden name=post_message value="">
+	<input type=hidden name=p_url value="">
+        
+
+    <div id="mainInputArea" class="commentInput clearfix">      
+        <table cellpadding="0" cellspacing="0" border="0"  >
+            <tr>
+				<td width="30" nowrap >
+                    <div id="emot_obj">
+                    	<div class="reply-write-ico" onclick="aria.emoticon.emoticonUi(event, this.offsetWidth,'emotion');">
+                    		<img src="http://www.gohackers.com/data/contents/emot/icon01.gif" style="cursor:pointer;" width="19" height="19" id="myemoticon">
+                    	</div>
+                    </div>
+                </td>
+                <td>닉네임 <input type=text name=name size=15 maxlength=12 class='input int' value="">                패스워드 <input type=password name=password class='input int'  maxLength=10 size=8 >                </td>
+                <td><img src="http://img.gohackers.com/board/ico_ipoint.gif" style="cursor:pointer;" width=17 height=16 title="비밀번호 작성하면 언제든지 삭제가 가능합니다." style="margin-left:10px;"></td>
+            </tr>
+        </table>              
+        <!--commentContent-->
+    	<!--<textarea name="memo" id="comment" wrap="s"  rows="3"  style="background:#fff url('') no-repeat 4px 4px;" onfocus="this.style.backgroundImage = 'none'"	class="captionTxt" onkeyup="aria.updateChar(600,'comment', 'curByte')" onClick="chkStartWrite(this);"></textarea>-->
+    	<textarea name="memo" id="comment" wrap="s"  rows="3"  style="background:#fff url('') no-repeat 4px 4px;" onfocus="this.style.backgroundImage = 'none'"	class="captionTxt"  onClick="chkStartWrite(this);"></textarea>
+    	<input type="image" value="등록" class="btnSubmit" src="http://img.gohackers.com/board/btn_record02.gif" width="55" height="34" /> 
+    	<!--<span class="byte"><b id="curByte">0</b>/600 bytes</span>-->
+    </div>
+    </form>
+	 
+    <!--  꼬릿말의 꼬릿말 입력form Start -->	
+    <div id="updateCmtArea"  style="display:none">
+		<div class="commentInput clearfix">		
+		     <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+					<td width="30" nowrap >
+                        <div id="emot_obj">
+                        	<div class="reply-write-ico" onclick="aria.emoticon.emoticonUi(event, this.offsetWidth,'reply_emotion');">
+                        		<img src="http://www.gohackers.com/data/contents/emot/icon01.gif" style="cursor:pointer;" width="19" height="19" id="myemoticon">
+                        	</div>
+                        </div>
+                    </td>
+                    <td>닉네임</td> 
+                    <td><input type=text name=name size=15 maxlength=12 class='input int' value=""></td>
+                                        <td>패스워드</td>
+                    <td><input type=password name=password class='input int'  maxLength=10 size=8 ></td>
+                      
+                                      
+                </tr>
+            </table>       
+			<input type="hidden" name="commentId" id="commentId">			
+    		<!--<textarea onkeyup="aria.updateChar(600,'recomment', 'curByte2')" id="recomment" name="memo"></textarea>-->
+    		<textarea  id="recomment" name="memo"></textarea>
+    		<input type="button" class="typeBtn btnConfirm" value="등록" onclick="aria.commentReply.submit()" />
+    		<input type="button" class="typeBtn btnCancle" value="취소" onclick="aria.commentReply.hiddenForm()" />
+    		<!--<span class="byte"><b id="curByte2">0</b>/600 bytes</span>-->
+		</div>
+	</div>
+	<!-- // 꼬릿말의 꼬릿말 입력form End -->
+	</div>
+	<!--commentBox 끝-->
+</div><!--commentArea끝-->
+
+<script>
+    /*
+    * 댓글의 기본폼이 있을경우 처음에만 삭제시켜줌 2009.1.15
+    */
+    function chkStartWrite(obj){
+        if(obj.value == ''){
+            document.writeCommentForm.memo.value ="";
+            document.writeCommentForm.memo.className = "defaultTxt";
+        }
+    }
+    
+    function commentModify(no) {
+        if(no == ""){
+            alert('no값이 필요합니다');
+            return;
+        }
+		document.deleteCommentForm.action = "http://www.gohackers.com/bbs/comment_modify.php";
+		document.deleteCommentForm.c_no.value = no;
+		document.deleteCommentForm.submit();
+		
+    }
+
+	// 본인 댓글 수정하기 : 2011-04-22
+	function commentModifyMyBbs(no) {
+        if(no == ""){
+            alert('no값이 필요합니다');
+            return;
+        }
+
+		document.deleteCommentForm.action = "http://www.gohackers.com/bbs/comment_modify_mybbs.php";
+		document.deleteCommentForm.c_no.value = no;
+		document.deleteCommentForm.submit();
+    }
+</script>
+
+<style>
+    .commentInput textarea {width:590px}
+    .commentInput #recomment {width:550px} 
+</style>
+
+<span id="emoticonTable" style="display:none;">
+	<table border="0" cellpadding="1" cellspacing="1" style="background-color:#C7C7C9;">		
+		<tr style="cursor:hand;" onfocus="this.blur()" bgcolor="#ffffff">
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('01');"><a href="javascript:;" onfocus="this.blur();"><img id="emo01" src="http://www.gohackers.com/data/contents/emot/icon01.gif" title="미소"><br></td>	
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('02');"><a href="javascript:;" onfocus="this.blur();"><img id="emo02" src="http://www.gohackers.com/data/contents/emot/icon02.gif" title="뿌듯"><br></td>
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('03');"><a href="javascript:;" onfocus="this.blur();"><img id="emo03" src="http://www.gohackers.com/data/contents/emot/icon03.gif" title="하하"><br></td>
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('04');"><a href="javascript:;" onfocus="this.blur();"><img id="emo04" src="http://www.gohackers.com/data/contents/emot/icon04.gif" title="엉엉"><br></td>
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('05');"><a href="javascript:;" onfocus="this.blur();"><img id="emo05" src="http://www.gohackers.com/data/contents/emot/icon05.gif" title="좋아좋아"><br></td>
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('06');"><a href="javascript:;" onfocus="this.blur();"><img id="emo06" src="http://www.gohackers.com/data/contents/emot/icon06.gif" title="충격"><br></td>
+			<td onMouseOver="aria.emoticon.onOver(this)" onMouseOut="aria.emoticon.onOut(this)" onclick="aria.emoticon.setId('07');"><a href="javascript:;" onfocus="this.blur();"><img id="emo07" src="http://www.gohackers.com/data/contents/emot/icon07.gif" title="조용"><br></td>			
+		</tr>					
+	</table>
+</span>
+
+<!--비번체크페이지-->
+<span id="checkPwdTable" style="display:none;">
+	<table border="0" cellpadding="1" cellspacing="1" style="background-color:#C7C7C9;">	
+		<tr style="cursor:hand;" onfocus="this.blur()" bgcolor="#ffffff">
+			<td>
+			    <input type=password name=password id="comment_password" class='input int'  maxLength=14 size=14 value="" style="background-image:url(http://www.gohackers.com/img/w8/loginbox_pw.gif); background-repeat:no-repeat; background-position:left;" onclick="aria.verifyAuthor.commentPwFormInit(this);" onKeyDown="aria.verifyAuthor.commentPwFormInit(this);" >
+			    <input type="button" class="typeBtn btnConfirm2" value="등록" onclick="aria.verifyAuthor.submit(this);" />
+                <input type="button" class="typeBtn btnCancel2" value="취소" onclick="aria.verifyAuthor.hide(this);" />
+			</td>
+		</tr>					
+	</table>	
+</span>
+
+<iframe width=0 height=0 name='procFrame' style='display:none;'></iframe>
+
+<form method=post name="deleteCommentForm">    
+	<input type=hidden name=page value=1>
+	<input type=hidden name=id value=essay>
+	<input type=hidden name=no value=83779>
+	<input type=hidden name=select_arrange value=headnum,arrangenum>
+	<input type=hidden name=desc value=>
+	<input type=hidden name=co_icon id="emotion" value="icon01.gif">
+	<input type=hidden name=page_num value=20>
+	<input type=hidden name=keyword value="">
+	<input type=hidden name=category value="">
+	<input type=hidden name=sn value="off">
+	<input type=hidden name=ss value="on">
+	<input type=hidden name=sc value="on">    
+	<input type=hidden name=mode value="">
+	<input type=hidden name=selected_cnt ><!-- 삭제시 사용-->
+	<input type=hidden name=comment_ids ><!-- 삭제시 사용-->
+	<input type=hidden name=c_no ><!-- 삭제시 사용-->
+	<input type=hidden name=password >
+	<!-- 타 사이트에서 iframe으로 댕겨갈때 파라미터 -->
+	<input type=hidden name=post_message value="">
+	<input type=hidden name=p_url value="">
+</form>
+
+<script type="text/javascript"> 
+	//aria.commentListResize = function() {
+	//	parent.document.getElementById('commentList').height = document.getElementById('commentArea').offsetHeight; 
+	//	top.document.getElementById("gaiaBbs").height = parent.document.getElementById("gaiaBbsBody").offsetHeight;
+	//}
+	//window.onload = function() {
+	//	aria.commentListResize();
+	//}
+	
+	
+	// 전체 선택/해제 
+    function toggleCheck(imgcheck){
+    	var tform = document.all;
+     
+    	if( tform.orderParam){
+    		var size = tform.orderParam.length;
+    		if( !size ) size = 1;
+    	}
+    	else {
+    		alert( '선택할 댓글이 없습니다.');
+    		tform.comment_check_all.checked = 0;
+    		return;
+    	}
+     
+    	if( imgcheck ) tform.comment_check_all.checked = ( tform.comment_check_all.checked )?0:1;
+    	var checked = tform.comment_check_all.checked;
+     
+    	if( size > 1 ){
+    		for( var i = 0 ; i < size ; i++ ){
+    			tform.orderParam[i].checked = checked;
+    		}
+    	}
+    	else if( size == 1 ){
+    		tform.orderParam.checked = checked;
+    	}
+
+    	return;
+    }
+     
+    function delCheckComment(){
+        var tform = document.all;
+        var chk_count = 0;
+        var total_comment_data = "";
+        
+    	if(tform.orderParam) {
+    		var size = tform.orderParam.length;
+    		if( !size ) size = 1;
+    	}
+    	else {
+    		alert( '선택할 댓글이 없습니다.');
+    		tform.comment_check_all.checked = 0;
+    		return;
+    	}
+     
+    	var checked = tform.comment_check_all.checked;
+     
+    	if(size > 1) {
+    		for( var i = 0 ; i < size ; i++ ) {
+    		    if(tform.orderParam[i].checked){
+    		        chk_count++;
+    		        if(total_comment_data != ""){
+    		            total_comment_data += "|";
+    		        }
+
+    		        total_comment_data += eval(tform.orderParam[i].value);
+    		    }
+    		}
+    	}
+    	else if(size == 1) {
+    	    if(tform.orderParam.checked){
+    	        chk_count++;
+    	        total_comment_data = eval(tform.orderParam.value);
+    	    }
+    	}
+    	   	
+    	if (confirm("선택된 댓글을 삭제하시겠습니까?")) {
+            document.deleteCommentForm.comment_ids.value = total_comment_data;
+            //document.deleteCommentForm.act.value   = "delete";
+            document.deleteCommentForm.selected_cnt.value = chk_count;
+        	document.deleteCommentForm.action = "http://www.gohackers.com/bbs/del_comment_ok2.php";
+        	document.deleteCommentForm.submit();	
+        }
+		else{
+            return;
+        }		
+    }
+</script>
+<!-- 이전 / 다음글 출력 -->
+<br>
+    <!-- 버튼 관련 출력 -->
+     <div class="itemBtnSet" style="border:0px solid #00000;">
+        	<div class="fl_ri bbsLinkSet">        	    
+        		<a href="zboard.php?id=essay&page=1&page_num=20&category=&sn=off&ss=on&sc=on&keyword=&prev_no=83779&sn1=&divpage=15&select_arrange=headnum,arrangenum&desc=&domain=&post_message=" class="goList">목록</a> 
+            	            	<span class="bar">|</span>
+            	<a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83780" class="goPrev">윗글</a>
+            	            	            	<span class="bar">|</span>
+            	<a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83777" class="goNext">아랫글</a>
+            	        	</div>			
+        					
+            <input type="button" value="글쓰기" class="typeBtn btnWrite" onclick="aria.link('write.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=write&sn1=')" />
+                        				            <input type="button" value="답글" class="typeBtn btnReply" onclick="aria.link('write.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=reply&sn1=')" />
+				            				            <input type="button" value="수정" class="typeBtn btnModify" onclick="aria.link('modify.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=modify')" />
+            <input type="button" value="삭제" class="typeBtn btnDelete" onclick="aria.link('delete.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779')" />
+				            
+            
+    </div>
+        
+</div><!--view.php 의 gaiaBbsBody 끝-->
+<br><br></div><form method=post name=list action=list_all.php target=hiddenframe>
+<input type=hidden name=page value=1>
+<input type=hidden name=id value=essay>
+<input type=hidden name=select_arrange value=headnum,arrangenum>
+<input type=hidden name=desc value=>
+<input type=hidden name=page_num value=20>
+<input type=hidden name=exec>
+<input type=hidden name=keyword value="">
+<input type=hidden name=sn value="off">
+<input type=hidden name=ss value="on">
+<input type=hidden name=sc value="on">
+<input type=hidden name=board_name value=essay>
+<input type=hidden name=exec_target value=iframe>
+<input type=hidden name=selected><!--선택된check cart값-->
+<input type="hidden" name="direction" ><!--관리자 공지글 위치 변경용 -->
+<input type="hidden" name="idx" >
+
+<!--게시판 목록 출력시작-->
+<!-- -->
+
+<div  class="login_area">
+    <div class="fl_le">
+        <div style="postion:relative;">       
+           	<div id="mangerform" style="position:absolute;visibility:visible;left:0px;top:0px;z-index:1;"></div>
+        </div>
+    </div>
+</div><!--/login_area-->
+
+
+<style type="text/css">    
+    #bbsListHead{width:700px; }
+</style>
+<div id="bbsListHead">    
+    
+	<div class="selbox2" >
+        <span class=selbox3>&nbsp;<select name=category onChange=aria.categorySubmitForm(this.value);  class=tbox >
+<option value="" selected>==분류선택==</option>
+<option value="1">내작품(48220)</option>
+<option value="3">첨삭(21009)</option>
+<option value="4">일반(3116)</option>
+<option value="12">알림(78)</option>
+</select></span>  
+		<script type="text/javascript" src="/common/js/common.js"></script>
+<span class=linkbtn btnW80><a href="javascript:eng_edu_open(16);" >영어타자연습</a></span>    </div>
+	</div><!--/bbsListHead-->
+
+<!--2010.3.13 add-->
+<style>
+    #thumbArea {width:75px;padding:0px 0 0 0; *zoom:1;}  
+    /* #thumbArea li {float:left; clear:both; width:100%; margin-bottom:23px;} */
+    #thumbArea .thumb {float:left; position:relative; margin-right:15px; margin-top:2px;}
+    #thumbArea .thumb a {overflow:hidden; display:inline-block; border:1px solid #ccc;} 
+    #thumbArea .thumb a img {margin:-1px; vertical-align:top;} /* border:none!important;*/
+    #thumbArea .thumb a.thumb_more {position:absolute; right:0; bottom:0;border:1px solid #eaeaea;}
+    #thumbArea .thumb a.thumb_more img {display:block; border:none!important; margin:0;}
+    #thumbArea .thumb_preview_wrap {overflow:hidden; position:absolute; height:100px; *height:110px; padding:2px 0 6px 0; border:1px solid #eaeaea; background:#fbfbfb;} 
+    #thumbArea .thumb_preview_wrap a {border:none;}
+    #thumbArea .thumb_preview_wrap td {height:97px; padding:0 5px; text-align:center; vertical-align:bottom;}
+    #thumbArea .thumb_preview_wrap td img {margin:0;} 
+</style> 
+
+
+<a name="lists"></a>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+	<script type='text/javascript'>var $j = jQuery.noConflict();</script>
+	<script>
+	function good_vote(board_id, data_no, user_ip) {
+		$j.ajax({ 
+			type: "POST", 
+			url:"/bbs/skin/daum_community/vote_check.php",
+			dataType:"html",  
+			data:"mode=vote_in&id="+board_id+"&no="+data_no+"&ip="+user_ip,
+			success:function(data){ 
+				if(data=="Y"){
+					//alert("추천완료!!");
+				}
+				else if(data=="N"){
+					alert("이미 추천하셨습니다.");
+				}
+				$j('#vote_view_'+data_no).load('/bbs/skin/daum_community/vote_check.php', { mode : 'view', id : board_id, no : data_no , ip: user_ip});
+			}
+		});
+	}
+	</script>
+
+<table width="700" border=0 class="gHead ariaList clr" id="bbsList">
+    <colgroup>
+        <!--<col style="width:20px;">-->        <col style="width:46px;">
+        <col style="width:55px;">
+		                        <col>
+                <col style="width:65px;">
+		<col style="width:55px;">
+        <col style="width:50px;">
+		<col style="width:45px;">
+	
+    </colgroup>
+    
+    <thead>
+	<tr>
+	    <!--<th></a></th>-->    
+        <th><a onfocus=blur() href='/bbs/zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&desc=desc'>번호</a></th>
+		
+        <th>형식</th>		                		<th>제목</th>
+		<th style="text-align:left;">글쓴이</th>		<th>일자</th>
+		<th><a onfocus=blur() href='/bbs/zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=hit&desc=desc'><img src=http://img.gohackers.com/board/img_blank2.gif width=10 class="goDesc" border=0></span>조회</a></th>
+	</tr>
+</thead>
+
+<tbody>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="48119"></td>--> 
+    <td class="cnt"><img src=http://img.gohackers.com/board/notice_icon.gif border=0></td>
+			<td class="cate"></td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=48119&list_number=72413&open_mode="  ><font class=style555><b><font color=094e88>★  토플 라이팅 게시판 활용법 ★</b></font></font></a><a href='javascript:popupComment("skin/daum_community","essay", 48119);' class='repCnt'>[19]</a></td>
+		
+    	
+
+	    <td class="nick" ><a href="#" onclick="aria.listNameSubmitForm('도우미');">도우미</a></td>
+	    <td class="datetime">
+                    </td>
+    <td class="cnt">36148</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="48118"></td>--> 
+    <td class="cnt"><img src=http://img.gohackers.com/board/notice_icon.gif border=0></td>
+			<td class="cate"></td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=48118&list_number=72412&open_mode="  ><font class=style555><b><font color=333333>[학습]챔프스터디 Writing 첨삭 서비스</b></font></font></a><a href='javascript:popupComment("skin/daum_community","essay", 48118);' class='repCnt'>[17]</a></td>
+		
+    	
+
+	    <td class="nick" ><a href="#" onclick="aria.listNameSubmitForm('도우미');">도우미</a></td>
+	    <td class="datetime">
+                    </td>
+    <td class="cnt">47232</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83801"></td>--> 
+    <td class="cnt">72411</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83801&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>이번에 라이팅 25점 꼭 맞아보고 싶습니다. 도와주세요 ㅜㅜ </font></a><img src=http://img.gohackers.com/board/icon_n.gif border=0  class=todayN></td>
+		
+    	
+
+	    <td class="nick" >뾰로롱</td>
+	    <td class="datetime">
+            2014/06/03        </td>
+    <td class="cnt">15</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83798"></td>--> 
+    <td class="cnt">72410</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83798&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>첫번째 첨삭해주세요ㅠㅠㅠ </font></a><img src=http://img.gohackers.com/board/icon_n.gif border=0  class=todayN></td>
+		
+    	
+
+	    <td class="nick" >owoa000</td>
+	    <td class="datetime">
+            2014/06/02        </td>
+    <td class="cnt">30</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83787"></td>--> 
+    <td class="cnt">72409</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83787&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>통합형 첨삭 부탁드립니다 제발</font></a></td>
+		
+    	
+
+	    <td class="nick" >안감암</td>
+	    <td class="datetime">
+            2014/05/31        </td>
+    <td class="cnt">53</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83785"></td>--> 
+    <td class="cnt">72408</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83785&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님, 첨삭 부탁드립니다8.</font></a></td>
+		
+    	
+
+	    <td class="nick" >롸이팅</td>
+	    <td class="datetime">
+            2014/05/31        </td>
+    <td class="cnt">51</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83783"></td>--> 
+    <td class="cnt">72407</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83783&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님, 첨삭부탁드립니다7. </font></a></td>
+		
+    	
+
+	    <td class="nick" >롸이팅</td>
+	    <td class="datetime">
+            2014/05/31        </td>
+    <td class="cnt">41</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83781"></td>--> 
+    <td class="cnt">72406</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83781&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>통합형 첨삭 부탁드립니다</font></a></td>
+		
+    	
+
+	    <td class="nick" >라데시마</td>
+	    <td class="datetime">
+            2014/05/31        </td>
+    <td class="cnt">37</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83780"></td>--> 
+    <td class="cnt">72405</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83780&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>독립형 첨삭 부탁드려요 :)</font></a></td>
+		
+    	
+
+	    <td class="nick" >y</td>
+	    <td class="datetime">
+            2014/05/30        </td>
+    <td class="cnt">27</td>
+</tr>
+
+<tr  bgcolor=#f7f7f7 >
+    <!--<td><input type=checkbox name=cart value="83779"></td>--> 
+    <td class="cnt"><img src=skin/daum_community/images/arrow.gif border=0 align=absmiddle></td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83779&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님 첨삭부탁드립니다!</font></a></td>
+		
+    	
+
+	    <td class="nick" >홍이</td>
+	    <td class="datetime">
+            2014/05/30        </td>
+    <td class="cnt">23</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83777"></td>--> 
+    <td class="cnt">72403</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83777&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님, 첨삭 부탁드립니다1.</font></a></td>
+		
+    	
+
+	    <td class="nick" >에세이</td>
+	    <td class="datetime">
+            2014/05/30        </td>
+    <td class="cnt">17</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83776"></td>--> 
+    <td class="cnt">72402</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83776&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님 고생많으십니다. 첨삭부탁드리겠습니다. 또 예상 점수도 가르쳐주시면감사하겠습니다.</font></a></td>
+		
+    	
+
+	    <td class="nick" >토플러12</td>
+	    <td class="datetime">
+            2014/05/30        </td>
+    <td class="cnt">21</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83573"></td>--> 
+    <td class="cnt">72401</td>
+			<td class="cate">알림</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83573&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555><b><font color=094e88>[앙코르오픈] 해커스유학 토플SP/WR 모범답안 100증정!</b></font></font></a></td>
+		
+    	
+
+	    <td class="nick" ><a href="#" onclick="aria.listNameSubmitForm('도우미');">도우미</a></td>
+	    <td class="datetime">
+            2014/05/29        </td>
+    <td class="cnt">249</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83771"></td>--> 
+    <td class="cnt">72400</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83771&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>연어님,첨삭부탁드려요..다시 수정했어요 ㅠ</font></a></td>
+		
+    	
+
+	    <td class="nick" >개구리</td>
+	    <td class="datetime">
+            2014/05/29        </td>
+    <td class="cnt">42</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83769"></td>--> 
+    <td class="cnt">72399</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83769&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>많이 부족하지만 아무나 독립형 첨삭 부탁드려요~</font></a></td>
+		
+    	
+
+	    <td class="nick" >ㅣ</td>
+	    <td class="datetime">
+            2014/05/29        </td>
+    <td class="cnt">46</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83753"></td>--> 
+    <td class="cnt">72398</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83753&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>The factors of Egypt collapse 첨삭 부탁드립니다!!</font></a></td>
+		
+    	
+
+	    <td class="nick" >라이팅 ...</td>
+	    <td class="datetime">
+            2014/05/28        </td>
+    <td class="cnt">36</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83752"></td>--> 
+    <td class="cnt">72397</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83752&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>독립형 첨삭 부탁드려요-sometimes it is better not to say anything</font></a></td>
+		
+    	
+
+	    <td class="nick" >l</td>
+	    <td class="datetime">
+            2014/05/28        </td>
+    <td class="cnt">82</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83773"></td>--> 
+    <td class="cnt">72396</td>
+			<td class="cate">첨삭</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj">&nbsp; <img src=skin/daum_community/images/reply_head.gif border=0 align=absmiddle>&nbsp;<a href='zboard.php?id=essay&no=83773&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>[re] 독립형 첨삭 부탁드려요-sometimes it is better not to say anything</font></a><a href='javascript:popupComment("skin/daum_community","essay", 83773);' class='repCnt'>[2]</a></td>
+		
+    	
+
+	    <td class="nick" >D</td>
+	    <td class="datetime">
+            2014/05/29        </td>
+    <td class="cnt">81</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83751"></td>--> 
+    <td class="cnt">72395</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83751&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>독립형첨삭 부탁드려요</font></a><a href='javascript:popupComment("skin/daum_community","essay", 83751);' class='repCnt'>[1]</a></td>
+		
+    	
+
+	    <td class="nick" >y</td>
+	    <td class="datetime">
+            2014/05/27        </td>
+    <td class="cnt">76</td>
+</tr>
+
+<tr >
+    <!--<td><input type=checkbox name=cart value="83749"></td>--> 
+    <td class="cnt">72394</td>
+			<td class="cate">내작품</td>
+	            	<!-- style="overflow:hidden; white-space: nowrap; text-overflow:ellipsis;" -->
+				<td class="subj"><a href='zboard.php?id=essay&no=83749&id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off' ><font class=style555>훈제연어님, 첨삭 부탁드립니다6.</font></a></td>
+		
+    	
+
+	    <td class="nick" >롸이팅</td>
+	    <td class="datetime">
+            2014/05/27        </td>
+    <td class="cnt">51</td>
+</tr>
+	</tbody>
+</table>
+
+<!-- 메뉴 버튼 Start -->
+<div class="btnSet clearfix">
+            <br><input type="button" value="글쓰기" class="typeBtn fl_le btnWrite" onclick="aria.link('write.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83779&mode=write&sn1=')" />        
+     
+     
+</div>
+<!-- // 메뉴 버튼 End -->
+
+<!-- 페이징 Start -->
+<div class="listPaging">
+<table class="pagingTable" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><span class="on"><b>1</b></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=2' >2</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=3' >3</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=4' >4</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=5' >5</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=6' >6</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=7' >7</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=8' >8</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=9' >9</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=10' >10</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=11'  >다음페이지</a></span></td>
+<td><span><a href='/bbs/zboard.php?id=essay&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&page=3621' >3621</a></span></td>
+</tr></tbody></table></div><!-- end of <div class="paging"> -->
+<!-- // 페이징 End -->
+</form>
+
+<form id="bbsSearch" name="searchForm" method="post" action="/bbs/zboard.php" onsubmit="return aria.searchSubmitForm(this)" >
+    <input type=hidden name=page value=1>
+    <input type=hidden name=id value=essay>
+    <input type=hidden name=select_arrange value=headnum,arrangenum>
+    <input type=hidden name=desc value=>
+    <input type=hidden name=page_num value=20>
+    <input type=hidden name=selected>
+    <input type=hidden name=exec>
+    <input type=hidden name=sp value="off">
+    <input type=hidden name=sn value="off">
+    <input type=hidden name=ss value="on">
+    <input type=hidden name=sc value="on">
+    <input type=hidden name=sf value="off">
+    <input type=hidden name=sa value="off">
+    <input type=hidden name=category value="">
+    <input type="hidden" name="c" value="search" />
+    <input type="hidden" name="m" value="query" />
+    <input type="hidden" name="query" value="" />
+	<input type=hidden name=domain value="" >
+    <input type=hidden name=post_message value="" >
+    <input type=hidden name=p_url value="" >
+            <link rel="stylesheet" href="/common/css/search.css?u=1401764714" type="text/css" />
+    <script type="text/javascript">
+        <!--
+        //검색종류에 따라 검색대상을 바꾼다.
+        function setSearchTarget( kind ) {
+            var form = document.getElementById("bbsSearch");
+
+            if( kind == "total" ) {             //통합검색       
+                form.method = "get";
+                form.action = "/?search/index";
+            } 
+			else if( kind == "board" ) {      //게시판검색 
+                form.action = "/bbs/zboard.php";
+            }
+        }
+        //-->
+    </script>
+
+    <center>
+    <div id="board_search">
+    	<fieldset>
+    		<legend>게시판검색</legend>
+    		<dl>
+                <dt>                    
+    				<select id="searchKey" name="searchKey">
+    					<option value='1' >제목+본문</option>
+                        <option value='2' >제목</option>
+                        <option value='3' >글쓴이</option>
+    				</select>				
+    			</dt>
+    			<dd>
+    			    <span class="input_box"><input type="text" id="searchInput" name="keyword" value="" style="padding-top:3px; padding-left:3px;" /></span>
+    			    <span><input type="image" src="http://www.gohackers.com/images/search/btn_search.gif" style="position:absolute; top:0; right:0; width:50px; height:20px;" onclick="javascript:setSearchTarget();" /></span>
+    			</dd>
+				<!--<input type="hidden" name="domain" value="1">-->
+    		</dl>    		
+    	</fieldset>
+        <p>
+                        <label><input type="radio" name="search_target" value='board' onclick="javascript:setSearchTarget('board');" checked/> 게시판내 검색</label>
+            <label><input type="radio" name="search_target" value='total' onclick="javascript:setSearchTarget('total');"/> 통합검색</label>
+                    </p>
+    </div>
+</div> <!-- div 마감 (가운데 정렬을 위해 다시 정의) -->
+    </center>
+
+    <!-- 이전 검색
+    <select id="searchKey" name="searchKey">
+        <option value='1'  >제목+본문</option>
+        <option value='2'  >제목</option>                
+        <option value='3'  >글쓴이</option>
+    </select>
+    <input type="text" id="searchInput" class="input" name="keyword" value="" />
+    <input type="submit" id="btnBbsSearch" class="typeBtn" value="검색" />
+    -->
+    </form> 
+
+
+<form name="searchNameListForm" method="post" action="/bbs/zboard.php" >
+<input type=hidden name=page value=1>
+<input type=hidden name=id value=essay>
+<input type=hidden name=select_arrange value=headnum,arrangenum>
+<input type=hidden name=desc value=>
+<input type=hidden name=page_num value=20>
+<input type=hidden name=selected>
+<input type=hidden name=exec>
+<input type=hidden name=sp value="off">
+<input type=hidden name=sn value="off">
+<input type=hidden name=ss value="on">
+<input type=hidden name=sc value="on">
+<input type=hidden name=sf value="off">
+<input type=hidden name=sa value="off">
+<input type=hidden name=cmt value="off">
+<input type=hidden name=category value="">
+<input type=hidden name=searchKey >
+<input type=hidden name=keyword  >
+<input type=hidden name=domain value="" >
+<input type=hidden name=post_message value="" >
+<input type=hidden name=p_url value="" >
+</form> 
+</div><!--//contentWrap-->
+<style type="text/css">
+	.btn_open {float:right}
+</style>
+
+
+<!-- Footer : STR -->
+<div id="footWrap" style="border:0px; width:900px">    
+	<h2>Footer</h2>
+	<!--
+		<ul id="service">
+			<li><a href="http://blog.daum.net/daumfinance/" target="_blank" title="공지사항"></a></li>
+			<li class="none"><a href="" target="_blank" title="개인정보관리">개인정보관리</a></li>
+		</ul>
+	  
+		<ul id="corp">
+			<li><a href="" target="_blank" title="서비스 약관/정책">서비스 약관/정책</a></li>
+			<li><a href="" target="_blank" title=" 고객센터"> 고객센터</a></li>
+			<li class="none"><a href="" target="_blank" title=" 문의하기 "> 문의하기 </a></li>
+		</ul>
+	-->
+	
+<script type="text/javascript" src="http://land.pass.com/js/jquery-1.7.2.min.js"></script>
+<script type='text/javascript'>var $j = jQuery.noConflict();</script>
+
+<!-- 베스트 근거 -->
+	<style type="text/css">
+		#footer p.btm_logo {margin:-4px 0 8px; width:320px; float:left}
+		ul.faddr_Txt li {font-size:11px; text-align:left; list-style:none;}
+		ul.faddr_Txt  *{font-size:11px;}
+		ul.faddr_Txt a {font-size:11px;}
+	</style>
+	<style>
+		.new_footer {
+			clear: both;
+			margin: 0 auto;
+			padding-top: 15px;
+			width: 900px;
+		}
+		.footer_textboxWrap {
+			clear: both;
+			background: url('http://www.gohackers.com/images/common/footer_textboxBot.gif') left bottom no-repeat;
+			width: 900px;			
+			overflow:hidden;
+			margin:8px auto;
+			
+		}
+		.footer_textboxWrap .footer_textbox {
+			background: url('http://www.gohackers.com/images/common/footer_textboxTop.gif') left top no-repeat;
+			padding: 3px 20px 1px 20px;
+			/*position:relative;*/
+		}
+		.footer_textboxWrap .footer_textbox h3 {
+			padding:10px 0;
+			color: #828b88;
+			font-size: 12px;
+			letter-spacing: -1px;
+			text-align:left;
+			background:#fff;
+			width:auto;
+			height:auto;
+			float:none;
+		}
+		.footer_textboxWrap .footer_textbox .footer_textCon {
+			text-align: left;
+			display: none;
+			border-top: 1px #e1e1e1 solid;
+			margin-top: 20px;
+			padding-top: 14px;
+			font-size: 12px;
+			color: #848a88;
+			height: 190px;
+			overflow: auto;
+		}
+		.footer_textboxWrap .footer_textbox .footer_textCon span.top {
+			display: block;
+			padding-left: 7px;
+			margin-bottom: 12px;
+		}
+		.footer_textboxWrap .footer_textbox .footer_textCon p {
+			background: url('http://www.gohackers.com/bbs/skin/daum_community/icon/footer_dot.gif') left 4px no-repeat;
+			padding-left: 7px;
+			margin: 3px 0;
+			color: #838987
+		}
+		.footer_textboxWrap .footer_textbox .footer_textCon a {
+			color: #838987;
+			text-decoration: none;
+		}
+		.footer_textboxWrap .btn_toggle {
+						top:25px;
+			right:20px;
+		}
+		.footer_textboxWrap .btn_open {
+						margin-top: -30px;
+			float:right;
+						color: #8ba0a1;
+			cursor: pointer;
+		}
+		.footer_textboxWrap .btn_close {
+			display: none;
+			color: #8ba0a1;
+			cursor: pointer;
+						margin-top: -30px;
+			float:right;
+					}
+
+			
+/*	서브푸터추가 leewj 20140529 */
+.familysite { display:block;  padding:10px 0 0 0; }
+.familysite ul.depth1 { overflow:hidden;  }
+.familysite ul.depth1 li { float:left; padding:0 19px 0 19px; min-height:140px; height:auto !important; border-left:solid 1px #d1d1d1; text-align:left;  }
+.familysite ul.depth1 li:first-child{ padding-left:0px; border-left:none;}
+.familysite ul.depth1 li.last{ padding-right:0px; }
+.familysite ul.depth1 li a{ display:block; line-height:18px; font-size:11px; color:#000000; letter-spacing:-1px;  font-family: 'Nanum Gothic','dotum' ,Verdana, Arial, sans-serif; }
+.familysite ul.depth1 li a:hover { color:#dd071c; }
+.familysite ul.depth1 li strong{ }
+.familysite ul.depth1 li strong a{ font-size:12px; color:#dd071c; margin-bottom:8px; }
+.familysite ul.depth1 li strong a:hover { color:#000; }
+
+	</style>
+	<script>
+		$j(function(){
+			$j("#toggleFootBox").click(function (){
+				var state = $j("#check_footbox_state").val();
+				$j("span.btn_close").toggle();
+				$j("span.btn_open").toggle();
+				
+				if( $j(".footer_textCon").is( $j(".footer_textCon").show()) ) {
+					$j(".footer_textCon").slideDown("hide");
+				} 
+				else {
+					$j(".footer_textCon").slideUp("slow");
+				}
+			});
+
+			$j("span.btn_close").click(function (){
+				$j("span.btn_open").show();
+				$j(this).hide();
+				$j(".footer_textCon").slideUp();
+			});
+			$j("span.btn_open").click(function (){
+				$j("span.btn_close").show();
+				$j(this).hide();
+				$j(".footer_textCon").slideDown();
+			});
+		});
+	</script>
+
+<!-- 베스트셀러 근거 -->
+<input type="hidden" id="quick_id" value="essay">
+<div class="footer_textboxWrap" id="foot_best">
+  <div class="footer_textbox">
+    <h3 id="toggleFootBox" style="cursor:pointer; ">고우해커스는 어학시험 분야 베스트셀러 교재의 정보를 제공합니다.<br />
+열기 버튼을 클릭하면 해커스 교재 순위를 확인할 수 있습니다.</h3>
+    <div class="btn_toggle"> <span class="btn_open">열기▼</span> <span href="#" class="btn_close">닫기▲</span> </div>
+    <div class="footer_textCon"> 
+		<span class="top">해커스 교재 순위 (2014/05/28 기준)</span>
+		<p><p>[해커스 토플 리딩 베이직 (초판~2nd edition)] 알라딘 토플 베스트셀러 (2006년~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 리스닝 베이직] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 스피킹 베이직(2nd)] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 라이팅 베이직] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 리딩 인터미디엇 (초판~2nd edition)] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 리스닝 인터미디엇] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 스피킹 인터미디엇(2nd)] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 라이팅 인터미디엇(초판~2nd edition)] 알라딘/Yes24 토플 베스트셀러 (2009년10월~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 리딩 (초판~2nd)] 교보문고 토플 베스트셀러   (2006년 7월~2014년 4월 현재)</p>
+</p><p><p>[해커스 토플 리스닝 (초판~2nd)] 교보문고 토플 베스트셀러 1위 (온라인 주간집계 2014년 3월 4주째)</p>
+</p><p><p>[해커스 토플 스피킹 (초판~3rd)] 알라딘 토플 스피킹 베스트셀러 1위 (2014년 4월 1주~)</p>
+</p><p><p>[해커스 토플 라이팅 (초판~2nd)] 알라딘 토플 라이팅 베스트셀러  (2006년~2014년 4월 현재)</p>
+</p><p><p>[해커스 보케블러리] 교보문고 토플 베스트셀러 1위 (2014년 2월 4주~)</p>
+</p><p><p>[해커스 토플 액츄얼 테스트 리딩] 알라딘/Yes24 토플 리딩 베스트셀러  (2008년~2014년 4월 현재)</p>
+</p><p><p>[해커스 토플 액츄얼 테스트 리스닝] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 액츄얼 테스트 스피킹] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 액츄얼 테스트 라이팅] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 CBT 그래머] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토플 CBT 리딩] 교보문고 외국어 수험영어 토플 베스트셀러 (온라인 주간집계  2014년 5월 3주~ 2014년 5월 현재)</p>
+</p><p><p>[해커스 토플 CBT 리스닝] 교보문고 수험영어 토플 베스트셀러 (2014년 2월 3주~2014년 2월 4주째)</p>
+</p><p><p>[해커스 라이팅 스타트] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 리딩 스타트] 교보문고 수험영어 토플 베스트셀러 (2014년 1월 4주~2014년 2월 현재)</p>
+</p><p><p>[해커스 그래머 스타트] 알라딘 토플 베스트셀러 (2013년 12월 2주~ 2014년 2월 현재)</p>
+</p><p><p>[해커스 리스닝 스타트] 교보문고 수험영어 토플 베스트셀러(온라인 주간집계 2014년 4월 2주~2014년 5월 2주째)</p>
+</p><p><p>[해커스 리딩 인트로] 알라딘/Yes24 영어청취 베스트셀러 (온라인 주간집계 2008년~2014년 5월 현재)</p>
+</p><p><p>[해커스 리스닝 인트로] 알라딘/Yes24 영어청취 베스트셀러 (2008년~2014년 4월 현재) </p>
+</p><p><p>[그래머 게이트웨이 베이직(3판)] 알라딘 외국어 베스트셀러 (2013년 12월 2주~2014년 3월 현재)</p>
+</p><p><p>[해커스 슈퍼보카] Yes24 영어어휘 베스트셀러  (2013년 10월 2주~2014년 4월 현재)</p>
+</p><p><p>[Hackers IELTS Speaking Basic] Yes24 IELTS 베스트셀러 1위 (2013년 10월 1주째)</p>
+</p><p><p>[해커스 토익 보카2014] 알라딘 외국어 토익 보카 베스트셀러 (온라인 주간집계 2014년 5월 2주~2014년 5월 현재)</p>
+</p><p><p>[해커스 토익 보카] 알라딘 외국어 토익 보카 베스트셀러 (온라인 주간집계 2014년 5월 2주~2014년 5월 현재)</p>
+</p><p><p>[해커스 토익 리딩(초판 ~ 2013전면개정판)] 교보문고 토익/토플 베스트셀러 (온라인 주간집계  2014년 1월 4주~2014년 5월 현재)</p>
+</p><p><p>[해커스 토익 리스닝(초판~2013전면개정판)] Yes24 토익 리딩 베스트셀러  (2005년 ~ 2014년 4월 현재)</p>
+</p><p><p>[해커스 토익 스타트 리딩(초판~2013 개정판)] 교보문고/알라딘 토익 베스트셀러 (2007년~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 스타트 리스닝(초판~2013 개정판)] 알라딘/Yes24 토익 베스트셀러 (2008년~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 중급 리딩] 알라딘/Yes24 토익 베스트셀러 (2013년 10월 3주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 중급 리스닝] 알라딘/Yes24 토익 베스트셀러 (2013년 10월 3주~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 실전 1000제 리딩 1] 알라딘 토익 실전서 베스트셀러  (2010년~2014년 4월 현재)</p>
+</p><p><p>[해커스 토익 실전 1000제 리스닝 1] 알라딘 토익 실전 베스트셀러 (2010년~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 실전 1000제 리딩 2] 알라딘 토익 실전서 베스트셀러  (2010년~2014년 4월 현재)</p>
+</p><p><p>[해커스 토익 실전 1000제 리스닝 2] 알라딘 토익 실전서 베스트셀러  (2010년~2014년 4월 현재)</p>
+</p><p><p>[해커스 토익 실전 예상강의 파트 5&6] 알라딘/ Yes24 토익 베스트셀러 (2013년5월~2014년 2월 현재)</p>
+</p><p><p>[해커스 토익 실전 예상강의 파트 5&6 (2)] 알라딘/ Yes24 토익 베스트셀러 (2013년 12월 3주~2014년 4월 현재)</p>
+</p><p><p>[스타토익 베이직] 교보문고 수험영어 토익 베스트셀러 (2014년 2월 4주~)</p>
+</p><p><p>[해커스 토익 스피킹 스타트] 알라딘/Yes24 토익 Speaking 베스트셀러  (2011년~2014년 4월 현재)</p>
+</p><p><p>[해커스 오픽 스타트] 교보문고/알라딘/Yes24 OPIc 베스트셀러 1위 (온라인 주간집계 2012년 9월~2013년 9월 3주째)</p>
+</p><p><p>[해커스 텝스 보카] 교보문고 외국어 수험영어 텝스 베스트셀러 (온라인 주간집계 2014년 2월 4주~2014년 5월 현재)</p>
+</p><p><p>[해커스 텝스 베이직 리딩] 알라딘/Yes24 텝스 Reading 베스트셀러 (온라인 주간집계 2009년 ~ 2014년 5월 현재)</p>
+</p><p><p>[해커스 텝스 베이직 리스닝] 교보문고 수험영어 텝스 베스트셀러 (2014년 1월 4주~2014년 3월 현재)</p>
+</p><p><p>[해커스 텝스 중급 문법] Yes24 텝스 독해/그래머 베스트셀러  (온라인 주간집계 2011년~2014년 5월 현재)</p>
+</p><p><p>[해커스 텝스 중급 독해어휘] 알라딘/Yes24 텝스 베스트셀러 (2011년~2014년 2월 현재)</p>
+</p><p><p>[해커스 텝스 중급 청해] 알라딘/Yes24 텝스 베스트셀러 (2011년~2014년 2월 현재)</p>
+</p><p><p>[해커스 텝스 리딩] 알라딘/Yes24 텝스 Reading 베스트셀러 (2009년 ~ 2014년 4월 현재)</p>
+</p><p><p>[해커스 텝스 리스닝] 알라딘/Yes24 텝스 Listening 베스트셀러 1위 (2013년 12월 4주~2014년 3월 4주째)</p>
+</p><p><p>[해커스 텝스 실전 1200제] 알라딘/Yes24 텝스 실전서 베스트셀러 (2010년~2014년 2월 현재)</p>
+</p><p><p>[서울대 텝스관리위원회 공식 최신기출 1200제 1 문제집] 알라딘 텝스 실전서 베스트셀러 1위(온라인 주간집계 2013년 10월 1주~ 2014년 4월 2주째)</p>
+</p><p><p>[서울대 텝스관리위원회 공식 최신기출 1200제 1 해설집] 알라딘/Yes24 텝스 실전서 베스트셀러 (2013년 11월 4주~2014년 4월 현재)</p>
+</p><p><p>[서울대 텝스관리위원회 공식 최신기출 Speaking] 교보문고 수험영어 텝스 베스트셀러 (2014년 1월 4주~2014년 3월 현재)</p>
+</p><p><p>[서울대 텝스관리위원회 공식 최신기출 Speaking&Writing]교보문고 수험영어 텝스 베스트셀러 (온라인 주간집계 2014년 3월 4주~2014년 5월 현재)</p>
+</p><p><p>[서울대 텝스관리위원회 공식 최신기출 i-TEPS] yes24 외국어 텝스 베스트셀러 (온라인 주간집계 2014년 5월 3주~ 2014년 5월 현재)</p>
+</p><p><p>[텝스 공식 문제 최신기출1] Yes24 텝스 베스트셀러  (온라인 주간집계 2013년 9월 3주~2014년 5월 2주째)</p>
+</p><p><p>[텝스 공식 문제 최신기출2] 교보문고 외국어 수험영어 텝스 베스트셀러(온라인 주간집계 2014년 5월 3주~2014년 5월 4주째)</p></p>    </div>
+  </div>
+</div>
+
+
+<!-- //베스트셀러 근거 -->
+
+<table width="900" border="0" height="70" align="center" style="margin:0 auto">
+	<tr>
+		<td>
+			<!-- <iframe width=900 height=70 frameborder=0 src="http://www.gohackers.com/html/delegate/gy_scroll.html" scrolling="no"></iframe> -->
+
+			<div class="familysite">
+				<ul class="depth1">
+					<li>
+						<strong><a href="http://www.Hackers.com" target="_blank">해커스 교육그룹</a></strong>
+						<a href="http://www.Hackers.com" target="_blank">해커스 소개</a>
+						<a href="http://www.PASS.com" target="_blank">해커스패스 소개</a>
+						<a href="http://recruit.Hackers.com" target="_blank">해커스 인재채용</a>
+					</li>
+					<li>
+						<strong><a href="http://www.Hackers.co.kr" target="_blank">어학시험·일반영어</a></strong>
+						<a href="http://www.Hackers.ac" target="_blank">해커스어학원</a>
+						<a href="http://www.ChampStudy.com" target="_blank">챔프스터디 동영상강의</a>
+						<a href="http://start.Champstudy.com" target="_blank">해커스 기초영어 전문관</a>
+						<a href="http://www.Hackers.co.kr" target="_blank">영어 포털 해커스영어</a>
+						<a href="http://www.goHackers.com" target="_blank">토플·유학 고우해커스</a>
+						<a href="http://www.HackersUhak.com" target="_blank">유학·연수전문 해커스유학</a>
+					</li>
+					<li>
+						<strong><a href="http://www.gosi.pass.com" target="_blank">공무원·경찰공무원</a></strong>
+						<a href="http://www.gosi.pass.com" target="_blank">해커스패스 공무원 학원</a>
+						<a href="http://gosi.pass.com/html/mmove.htm?id=freelec_basic_new&amp;mode=vod_textbook&amp;subject=1" target="_blank">공무원 동영상 강의</a>
+						<a href="http://police.pass.com/" target="_blank">해커스패스 경찰공무원 학원</a>
+						<a href="http://epolice.pass.com/  " target="_blank">경찰공무원 동영상 강의</a>
+					</li>
+					<li>
+						<strong><a href="http://www.PASS.com" target="_blank">금융·공인중개사</a></strong>
+						<a href="http://fn.pass.com/" target="_blank">해커스패스 금융</a>
+						<a href="http://land.pass.com/" target="_blank">해커스패스 공인중개사 학원</a>
+						<a href="http://eland.pass.com/" target="_blank">공인중개사 동영상 강의</a>
+					</li>
+					<li>
+						<strong><a href="http://www.HackersJOB.com" target="_blank">취업·자기계발</a></strong>
+						<a href="http://www.HackersJOB.com" target="_blank">취업포털 해커스잡</a>
+						<a href="http://www.edu2080.co.kr" target="_blank">위더스 사회복지사/보육교사</a>
+					</li>
+					<li class="last">
+						<strong><a href="http://www.JumpHackers.com" target="_blank">수능·편입</a></strong>
+						<a href="http://www.JumpHackers.com" target="_blank">수능·입시포탈 점프해커스</a>
+						<a href="http://www.jrjump.co.kr" target="_blank">편입·동영상 강의</a>
+						<a href="http://www.haksa2080.com" target="_blank">위더스 학사편입/학위취득</a>
+					</li>
+				</ul>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="footer" style="margin-top:20px" >
+				<p class="btm_logo" style="float:left">
+					<a href="http://www.gohackers.com" target="_parent"><img src='http://www.gohackers.com/images/img_logo_btm.gif'  border="0" /></a>
+					<a target="_blank" href="http://www.hackers.ac/html/mmove.htm?id=afterseminar22"><img src='http://www.gohackers.com/images/img_emblem.gif' border="0" /></a>
+				</p>
+	
+				<ul class="faddr_Txt" style="float:left; margin:0 0 0 -23px; width:" >
+					<li style="width: 600px;">
+					<a href="http://www.hackers.com" target="_blank" style="font-size:11px;">회사소개</a> | <a href="http://www.gohackers.com/html/?id=privacy" class="fbold" target="_top"><b style="font-size:11px;">개인정보취급방침</b></a> | <a href="#" class="get-email" onclick="window.open('http://gohackers.com/sub/mail_add.html','','resizable=no width=450 height=210');return false" style="font-size:11px;">이메일주소무단수집거부</a> | <a href="http://www.gohackers.com/html/?id=site_map" target="_blank" style="font-size:11px;">사이트맵</a> | <a href="http://www.gohackers.com/html/?id=v_help_mail" target="_blank" style="font-size:11px;">문의사항</a> | <a href="http://www.gohackers.com/html/?id=to_hackers" target="_blank" style="font-size:11px;">해커스에바란다</a> | <a href="http://www.gohackers.com/html/?id=dataetc&no=193000" target="_blank" style="font-size:11px;">게시중단요청서비스</a>
+					</li>
+					<li style="margin:3px 0 0; font-size:11px; line-height:20px;"><span style="font-size:11px;">(주)해커스어학연구소 | 고우해커스 | 대표이사 : 김미준 | 대표번호 : (02)566-0001 | 서울특별시 서초구 강남대로61길<br /> 23 (서초동 1316-15) 202호 사업자등록번호 120-86-69665</span></li>
+			  </ul>
+			</div>
+		</td>
+	</tr>
+</table>
+<br>
+	 
+</div><!--//footWrap -->
+</div><!--//wrap3D-->
+
+
+<script>
+print_ZBlayer('zbLayer1', '', '', '', 'essay', 'y', '', '', '', '');
+print_ZBlayer('zbLayer2', '', '', '', 'essay', '%BF%A1%BC%BC%C0%CC', '', '', '', '');
+print_ZBlayer('zbLayer3', '', '', '', 'essay', '%C8%AB%C0%CC', '', '', '', '');
+print_ZBlayer('zbLayer4', '', '', '1', 'essay', '%B5%B5%BF%EC%B9%CC', '', '', '', '');
+print_ZBlayer('zbLayer5', '', '', '1', 'essay', '%B5%B5%BF%EC%B9%CC', '', '', '', '');
+print_ZBlayer('zbLayer6', '', '', '', 'essay', '%BB%CF%B7%CE%B7%D5', '', '', '', '');
+print_ZBlayer('zbLayer7', '', '', '', 'essay', 'owoa000', '', '', '', '');
+print_ZBlayer('zbLayer8', '', '', '', 'essay', '%BE%C8%B0%A8%BE%CF', '', '', '', '');
+print_ZBlayer('zbLayer9', '', '', '', 'essay', '%B7%D6%C0%CC%C6%C3', '', '', '', '');
+print_ZBlayer('zbLayer10', '', '', '', 'essay', '%B7%D6%C0%CC%C6%C3', '', '', '', '');
+print_ZBlayer('zbLayer11', '', '', '', 'essay', '%B6%F3%B5%A5%BD%C3%B8%B6', '', '', '', '');
+print_ZBlayer('zbLayer12', '', '', '', 'essay', 'y', '', '', '', '');
+print_ZBlayer('zbLayer13', '', '', '', 'essay', '%C8%AB%C0%CC', '', '', '', '');
+print_ZBlayer('zbLayer14', '', '', '', 'essay', '%BF%A1%BC%BC%C0%CC', '', '', '', '');
+print_ZBlayer('zbLayer15', '', '', '', 'essay', '%C5%E4%C7%C3%B7%AF12', '', '', '', '');
+print_ZBlayer('zbLayer16', '', '', '1', 'essay', '%B5%B5%BF%EC%B9%CC', '', '', '', '');
+print_ZBlayer('zbLayer17', '', '', '', 'essay', '%B0%B3%B1%B8%B8%AE', '', '', '', '');
+print_ZBlayer('zbLayer18', '', '', '', 'essay', '%A4%D3', '', '', '', '');
+print_ZBlayer('zbLayer19', '', '', '', 'essay', '%B6%F3%C0%CC%C6%C3+%C1%A4%BA%B9%B1%E2%21', '', '', '', '');
+print_ZBlayer('zbLayer20', '', '', '', 'essay', 'l', '', '', '', '');
+print_ZBlayer('zbLayer21', '', '', '', 'essay', 'D', '', '', '', '');
+print_ZBlayer('zbLayer22', '', '', '', 'essay', 'y', '', '', '', '');
+print_ZBlayer('zbLayer23', '', '', '', 'essay', '%B7%D6%C0%CC%C6%C3', '', '', '', '');
+</script>	<script type=text/javascript>    
+		//플로팅배너용 boardid값을 입력
+		var contentId = "essay";
+		var rightGroupId = "25";    
+	</script>
+<script type=text/javascript src=/common/js/jindo.all.js language=javascript></script><script type='text/javascript' src='/_include/float_banner.js?=1401764714' language='javascript'></script>	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" language="javascript"></script>
+	<script type='text/javascript'>var $s = jQuery.noConflict();</script>
+<script language="javascript">document.cookie="board_subject=%7CRe..%BF%A1%BC%BC%C0%CC%C5%E4%C7%C8%B9%F8%28essay%26no%3D800%7CRe..%C0%FA%C0%C7+%C0%C7%B0%DF%28essay%26no%3D845%7C%C3%B9%B9%F8%C2%B0+%C3%B7%BB%E8%C7%D8%C1%D6%BC%BC%BF%E4%28essay%26no%3D83798%7CThe+factor%28essay%26no%3D83753%7C%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4%2C+%C3%B7%BB%E8+%28essay%26no%3D83749%7C%B5%B6%B8%B3%C7%FC%C3%B7%BB%E8+%BA%CE%C5%B9%B5%E5%B7%C1%28essay%26no%3D83751%7C%5Bre%5D+%B5%B6%B8%B3%C7%FC+%C3%B7%28essay%26no%3D83773%7C%B5%B6%B8%B3%C7%FC+%C3%B7%BB%E8+%BA%CE%C5%B9%B5%E5%28essay%26no%3D83752%7C%C0%CC%B9%F8%BF%A1+%B6%F3%C0%CC%C6%C3+25%28essay%26no%3D83801%7C%C8%C6%C1%A6%BF%AC%BE%EE%B4%D4+%C3%B7%BB%E8%BA%CE%C5%B9%28essay%26no%3D83779; path=/; domain=gohackers.com; expires=Wed, 04 Jun 2014 03:05:14 GMT";</script><script language="javascript">document.cookie="board_contents=%7Cessay; path=/; domain=gohackers.com; expires=Wed, 04 Jun 2014 03:05:14 GMT";</script><!--스킨skin/daum_community-->
+	
+	<iframe id='inneriframe' width='0' height='0'></iframe> 
+	<!-- 타이틀 임의 수정요청으로 변경처리함 script by hong 20090413 -->
+	<script language="JavaScript">
+	//해커스 공무원에서 자바스크립트 엑세스 거부 경고 예외처리(120611)
+			var webTitle = function(){
+			this.webTitle = parent.document.title;
+		}
+
+	webTitle.prototype.addTitle = function(vl){
+		var wt = this.webTitle.split("|");
+		parent.document.title = wt[0] +" | "+ vl;
+	}
+
+	if(document.location.host == 'www.gohackers.com' || document.location.host == 'gohackers.com'){
+	    var set_title = new webTitle();	
+	        
+    	set_title.addTitle('훈제연어님 첨삭부탁드립니다!');
+	    }
+		
+	//hackerspass 자동 사이즈조절
+	function auto_pass(sub_domain){ 
+		var iframe = document.getElementById( 'inneriframe' ); 
+		var height = document.getElementById('content').offsetHeight; 
+		
+		iframe.src = 'http://'+sub_domain+'.pass.com/html/auto_size.html?height='+height; 
+	}
+
+	// jump 자동 사이즈 조절
+	function jump_IFrameAutoResize(){ 
+		var iframe = document.getElementById('inneriframe'); 
+		var height = document.body.scrollHeight+10; 
+
+		iframe.src = 'http://www.jumphackers.com/common/IFrameAutoResize.html?height='+height; 
+	}
+
+
+
+</script>
+
+<!-- LOGGER SCRIPT FOR SETTING ENVIRONMENT V.27 :  / FILL THE VALUE TO SET. -->
+<!-- COPYRIGHT (C) 2002-2008 BIZSPRING INC. LOGGER(TM) ALL RIGHTS RESERVED. -->
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/TOEFL/라이팅게시판"; /* Contents Path */
+</script>
+<!-- END OF ENVIRONMENT SCRIPT -->
+
+<!-- LOGGER TRACKING SCRIPT V.31 FOR gohackers.com / 120 : FAIL-SAFE TYPE / DO NOT ALTER THIS SCRIPT. -->
+<!-- COPYRIGHT (C) 2002-2008 BIZSPRING INC. LOGGER(TM) ALL RIGHTS RESERVED. -->
+<script language="JavaScript">/* LOGGER TRACKING SCRIPT V.32 : 120 *//*X*//* COPYRIGHT 2002-2008 BIZSPRING INC. *//*X*//* DO NOT MODIFY THIS SCRIPT. *//*X*/var _TRK_DOMAIN="222.122.229.26";var _trk_bMSIE=(document.all)?true:false;var _trk_bJS12=(window.screen)?true:false;function _trk_escape(_str) { var str, ch; var bEncURI = "N"; eval("try{bEncURI=encodeURI('Y');}catch(_e){ }" ); if( bEncURI == "Y" ) str=encodeURI(_str); else str = escape(_str); str=str.split("+").join("%2B"); str=str.split("/").join("%2F"); str=str.split("&").join("%26"); str=str.split("?").join("%3F"); str=str.split(":").join("%3A"); str=str.split("#").join("%23"); return str;}function _trk_setCookie(name,value,expire) { var today=new Date(); today.setTime(today.getTime()+ expire ); document.cookie=name+"="+value+"; path=/; expires="+today.toGMTString()+";";}function _trk_getCookie(name) { var cookieName=name+"="; var x=0; while(x<=document.cookie.length) { var y=(x+cookieName.length); if(document.cookie.substring(x,y)==cookieName) {  if((endOfCookie=document.cookie.indexOf(";",y))==-1) endOfCookie=document.cookie.length;  return unescape(document.cookie.substring(y,endOfCookie)); } x=document.cookie.indexOf(" ",x)+1; if(x == 0) break; } return "";}function _trk_getParameter(name) { var paraName=name+"="; var URL=""+self.document.location.search; var tURL=""; eval("try{ tURL=top.document.location.search; }catch(_e){}"); URL=URL+"&"+tURL; if(URL.indexOf(paraName)!=-1) { var x=URL.indexOf(paraName)+paraName.length; var y=URL.substr(x).indexOf("&"); if(y!=-1) return URL.substring(x,x+y); else return URL.substr(x); } return "";}function _trk_make_code(_TRK_SERVER) { var dt=document.title.toString(); dt=dt.substr(0,128); var dr=self.document.referrer; var tdr=""; eval("try{ tdr=top.document.referrer; }catch(_e){}"); var tdu=""; eval("try{ tdu=top.document.location.href; }catch(_e){}"); var bFrm=false; if(dr==tdu) { dr=tdr; bFrm=true; } if(dr=="undefined") dr=""; var du=self.document.location.href; if(du.substr(0,4)=="file") return ""; var adKeyVal = ""; if(bFrm) { adKeyVal=_trk_getParameter("OVKEY"); if(adKeyVal!="" && du.indexOf("OVKEY=")<0) {  if(du.indexOf("?")!=-1) du=du+"&OVKEY="+adKeyVal; else du=du+"?OVKEY="+adKeyVal;  adKeyVal=_trk_getParameter("OVRAW");  if(adKeyVal!="" && du.indexOf("OVRAW=")<0 ) if(du.indexOf("?")!=-1) du=du+"&OVRAW="+adKeyVal; else du=du+"?OVRAW="+adKeyVal; } else {  adKeyVal=_trk_getParameter("netpia");  if(adKeyVal!="" && du.indexOf("netpia=")<0 ) if(du.indexOf("?")!=-1) du=du+"&netpia="+adKeyVal; else du=du+"?netpia="+adKeyVal; } adKeyVal=_trk_getParameter("logger_kw"); if(adKeyVal!="" && du.indexOf("logger_kw=")<0 )  if(du.indexOf("?")!=-1) du=du+"&logger_kw="+adKeyVal; else du=du+"?logger_kw="+adKeyVal; adKeyVal=_trk_getParameter("source"); if(adKeyVal!="" && du.indexOf("source=")<0 )  if(du.indexOf("?")!=-1) du=du+"&source="+adKeyVal; else du=du+"?source="+adKeyVal; adKeyVal=_trk_getParameter("keywd"); if(adKeyVal!="" && du.indexOf("keywd=")<0 )  if(du.indexOf("?")!=-1) du=du+"&keywd="+adKeyVal; else du=du+"?keywd="+adKeyVal; } var ce=navigator.cookieEnabled?"Y":"N"; var je=navigator.javaEnabled()?"Y":"N"; var ss=""; var cd = ""; if(_trk_bJS12) { ss=screen.width+"x"+screen.height; cd=screen.colorDepth; } if(!dt) dt=""; if(!dr) dr=""; if(!du) du=""; if(!ce) ce=""; if(!je) je=""; var t = new Date; var tye=(_trk_bMSIE)?(t.getYear()):(t.getFullYear()); var tmo=t.getMonth()+1; var tda=t.getDate(); var tho=t.getHours(); var tmi=t.getMinutes(); var tse=t.getSeconds(); var tzo=t.getTimezoneOffset(); var tc = ""; var prtcl=document.location.protocol.indexOf("https")!=-1?"https://":"http://"; tc=tc+prtcl+_TRK_SERVER; var _trk_port = document.location.protocol.indexOf("https")!=-1?"":""; tc=tc+_trk_port; var bPNF=((typeof _TRK_PI)!="undefined" && _TRK_PI=="PNF")?true:false; if(bPNF) tc=tc+"/tracker_click.tsp"; else tc=tc+"/tracker.tsp"; tc=tc+"?SSID="+_SSID+"&u=&XU=&EXEN="+_EXEN; if(bPNF) { tc=tc+"&rnd="+Math.random()+"&CKFL="+_TRK_PI+"&CKDATA="+_trk_escape(du); } else { tc=tc+"&dr="+_trk_escape(dr)+"&XDR="+"&dt="+_trk_escape(dt)+"&du="+_trk_escape(du); if((typeof _TRK_CP)!="undefined" && _TRK_CP!="") tc=tc+"&CP="+_trk_escape(_TRK_CP)+"&XCP="; if((typeof _TRK_PI)!="undefined" && _TRK_PI!="") tc=tc+"&PI="+_TRK_PI; if((typeof _TRK_PN)!="undefined" && _TRK_PN!="") tc=tc+"&PN="+_trk_escape(_TRK_PN); if((typeof _TRK_MF)!="undefined" && _TRK_MF!="") tc=tc+"&MF="+_trk_escape(_TRK_MF); if((typeof _TRK_OA)!="undefined" && _TRK_OA!="") tc=tc+"&OA="+_TRK_OA; if((typeof _TRK_OP)!="undefined" && _TRK_OP!="") tc=tc+"&OP="+_trk_escape(_TRK_OP); if((typeof _TRK_OE)!="undefined" && _TRK_OE!="") tc=tc+"&OE="+_TRK_OE; if((typeof _TRK_CC)!="undefined" && _TRK_CC!="") tc=tc+"&CC="+_TRK_CC; if((typeof _TRK_RK)!="undefined" && _TRK_RK!="") tc=tc+"&RK="+_trk_escape(_TRK_RK); if((typeof _TRK_SX)!="undefined" && _TRK_SX!="") tc=tc+"&SX="+_TRK_SX; if((typeof _TRK_AG)!="undefined" && _TRK_AG!="") tc=tc+"&AG="+_TRK_AG; if((typeof _TRK_IK)!="undefined" && _TRK_IK!="") tc=tc+"&IK="+_trk_escape(_TRK_IK); if((typeof _TRK_EC1)!="undefined" && _TRK_EC1!="") tc=tc+"&EC1="+_trk_escape(_TRK_EC1); if((typeof _TRK_EC2)!="undefined" && _TRK_EC2!="") tc=tc+"&EC2="+_trk_escape(_TRK_EC2); tc=tc+"&js=Y"+"&ss="+escape(ss)+"&cd="+cd+"&ce="+ce+"&je="+je+"&tzo="+tzo+"&tye="+tye+"&tmo="+tmo+"&tda="+tda+"&tho="+tho+"&tmi="+tmi+"&tse="+tse; } return tc;}var _TRK_LIFE=_trk_getParameter("_L_");if(_TRK_LIFE=="") _TRK_LIFE=14;_TRK_LIFE = parseInt(_TRK_LIFE)*24*60*60*1000;var _TRK_CC_C=_trk_getCookie("_TRK_CC");var _TRK_CC_P=_trk_getParameter("_C_");if((typeof _TRK_CC)!="undefined" && _TRK_CC!="") _TRK_CC_P=_TRK_CC;if(_TRK_CC_C!="") _TRK_CC=_TRK_CC_C;if(_TRK_CC_P!="") _TRK_CC=_TRK_CC_P;if((typeof _TRK_CC)!="undefined" && _TRK_CC!="" && _TRK_CC_P!="") _trk_setCookie("_TRK_CC",_TRK_CC,_TRK_LIFE);var _SS_LIFE = 30*60*1000;var _EXEN = _trk_getCookie("_EXEN");if( _EXEN == "" ) _EXEN = 0; _EXEN ++;_trk_setCookie("_EXEN",_EXEN,_SS_LIFE);var _SSID = _trk_getCookie("GPSESSIONID");if(_SSID == "") _SSID = "";var _trk_code_base=_trk_make_code("222.122.229.26");var _trk_img_base=new Image();var _trk_img_base_click=new Image();if(_trk_bJS12==true) { if(_trk_bMSIE) { _trk_img_base.src=_trk_code_base; } else { setTimeout("_trk_img_base.src=_trk_code_base;",1); }} else { if(_trk_bMSIE) document.write('<div style=\"display: none\">'); document.write('<img src=\"'+_trk_code_base+'\" height=\"0\" width=\"0\">'); if(_trk_bMSIE) document.write('</div>');}function _trk_flashContentsView(_TRK_CP) { var _trk_code_flash=_trk_code_base; _trk_code_flash=_trk_code_flash.replace(/&CP=.*&XCP=/g,"&XCP="); _trk_code_flash=_trk_code_flash.replace(/&dr=.*&XDR=/g,"&XDR="); _trk_img_base_click.src=_trk_code_flash+"&dr=&CP="+_trk_escape(_TRK_CP)+"&rnd="+Math.random();}function _trk_clickTrace(_TRK_CKFL,_TRK_CKDATA) { var du=self.document.location.href; if(du.substr(0,4)=="file") return ""; var _trk_code_click=_trk_code_base.substr(0,_trk_code_base.indexOf("tracker.tsp")); _trk_code_click=_trk_code_click+"tracker_click.tsp?rnd="+Math.random()+"&CKFL="+_TRK_CKFL+"&CKDATA="+_trk_escape(_TRK_CKDATA); _trk_img_base_click.src=_trk_code_click+"&u=&XU=&du="+_trk_escape(du)+"&SSID="+_SSID;}function _trk_adClick( adSvr, svcCode, adCode ) { var ac = ""; var prtcl=document.location.protocol.indexOf("https")!=-1?"https://":"http://"; ac=ac+prtcl+adSvr; _trk_img_base_click.src=ac+"/tracker_ad.tsp?u="+svcCode+"&mode=C&adCode="+adCode;}</script>
+<noscript><img src="http://222.122.229.26/tracker.tsp?u=120&js=N" width=0 height=0></noscript>
+
+
