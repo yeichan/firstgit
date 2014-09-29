@@ -13,7 +13,9 @@
 			<a href="zboard.php?id=essay&page=1&sp1=&sn1=&divpage=15&sp=off&sn=off&ss=on&sc=on&sf=off&sa=off&select_arrange=headnum&no=83777" class="goNext">아랫글</a>
         	    	</div>';
         	   **/
+
         	//$content = file_get_contents ('content.html');
+        	    	//$content = file_get_contents ('content.html');
 
 
 	//preg_match_all('|<a href=".*" class="goNext">아랫글</a>|', $content, $matches, PREG_SET_ORDER);
